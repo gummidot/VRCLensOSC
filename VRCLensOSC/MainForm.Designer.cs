@@ -116,6 +116,9 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.stepMoveVUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -143,14 +146,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepRotH)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
             // 
-            this.sldZoom.Location = new System.Drawing.Point(166, 7);
+            this.sldZoom.Location = new System.Drawing.Point(142, 8);
             this.sldZoom.Maximum = 10000;
             this.sldZoom.Name = "sldZoom";
-            this.sldZoom.Size = new System.Drawing.Size(324, 45);
+            this.sldZoom.Size = new System.Drawing.Size(278, 45);
             this.sldZoom.TabIndex = 0;
             this.sldZoom.TabStop = false;
             this.sldZoom.Value = 2500;
@@ -158,9 +163,9 @@
             // 
             // btnZoomOut
             // 
-            this.btnZoomOut.Location = new System.Drawing.Point(84, 3);
+            this.btnZoomOut.Location = new System.Drawing.Point(72, 3);
             this.btnZoomOut.Name = "btnZoomOut";
-            this.btnZoomOut.Size = new System.Drawing.Size(83, 49);
+            this.btnZoomOut.Size = new System.Drawing.Size(71, 53);
             this.btnZoomOut.TabIndex = 1;
             this.btnZoomOut.Text = "Zoom Out\n( - )";
             this.btnZoomOut.UseVisualStyleBackColor = true;
@@ -170,18 +175,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F);
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(3, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Zoom";
             // 
             // btnZoomIn
             // 
-            this.btnZoomIn.Location = new System.Drawing.Point(540, 3);
+            this.btnZoomIn.Location = new System.Drawing.Point(463, 3);
             this.btnZoomIn.Name = "btnZoomIn";
-            this.btnZoomIn.Size = new System.Drawing.Size(84, 49);
+            this.btnZoomIn.Size = new System.Drawing.Size(72, 53);
             this.btnZoomIn.TabIndex = 3;
             this.btnZoomIn.Text = "Zoom In\n( + )";
             this.btnZoomIn.UseVisualStyleBackColor = true;
@@ -191,9 +196,9 @@
             // lbZoomPer
             // 
             this.lbZoomPer.AutoSize = true;
-            this.lbZoomPer.Location = new System.Drawing.Point(487, 12);
+            this.lbZoomPer.Location = new System.Drawing.Point(417, 13);
             this.lbZoomPer.Name = "lbZoomPer";
-            this.lbZoomPer.Size = new System.Drawing.Size(27, 12);
+            this.lbZoomPer.Size = new System.Drawing.Size(27, 13);
             this.lbZoomPer.TabIndex = 4;
             this.lbZoomPer.Text = "25%";
             // 
@@ -207,32 +212,32 @@
             this.panel.Controls.Add(this.lbZoomPer);
             this.panel.Controls.Add(this.btnZoomOut);
             this.panel.Controls.Add(this.sldZoom);
-            this.panel.Location = new System.Drawing.Point(12, 54);
+            this.panel.Location = new System.Drawing.Point(10, 59);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(737, 55);
+            this.panel.Size = new System.Drawing.Size(632, 60);
             this.panel.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(630, 21);
+            this.label4.Location = new System.Drawing.Point(540, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 12);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Strength";
             // 
             // lbZoomLen
             // 
             this.lbZoomLen.AutoSize = true;
-            this.lbZoomLen.Location = new System.Drawing.Point(487, 31);
+            this.lbZoomLen.Location = new System.Drawing.Point(417, 34);
             this.lbZoomLen.Name = "lbZoomLen";
-            this.lbZoomLen.Size = new System.Drawing.Size(37, 12);
+            this.lbZoomLen.Size = new System.Drawing.Size(29, 13);
             this.lbZoomLen.TabIndex = 8;
             this.lbZoomLen.Text = "- mm";
             // 
             // stepZoom
             // 
-            this.stepZoom.Location = new System.Drawing.Point(690, 17);
+            this.stepZoom.Location = new System.Drawing.Point(591, 18);
             this.stepZoom.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -244,7 +249,7 @@
             0,
             0});
             this.stepZoom.Name = "stepZoom";
-            this.stepZoom.Size = new System.Drawing.Size(41, 21);
+            this.stepZoom.Size = new System.Drawing.Size(35, 20);
             this.stepZoom.TabIndex = 7;
             this.stepZoom.Value = new decimal(new int[] {
             10,
@@ -261,39 +266,39 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnEVm);
             this.panel2.Controls.Add(this.sldEV);
-            this.panel2.Location = new System.Drawing.Point(12, 112);
+            this.panel2.Location = new System.Drawing.Point(10, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(737, 55);
+            this.panel2.Size = new System.Drawing.Size(632, 60);
             this.panel2.TabIndex = 10;
             // 
             // lbEV
             // 
             this.lbEV.AutoSize = true;
-            this.lbEV.Location = new System.Drawing.Point(487, 21);
+            this.lbEV.Location = new System.Drawing.Point(417, 23);
             this.lbEV.Name = "lbEV";
-            this.lbEV.Size = new System.Drawing.Size(27, 12);
+            this.lbEV.Size = new System.Drawing.Size(27, 13);
             this.lbEV.TabIndex = 10;
             this.lbEV.Text = "50%";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(630, 21);
+            this.label5.Location = new System.Drawing.Point(540, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 12);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Strength";
             // 
             // stepEV
             // 
-            this.stepEV.Location = new System.Drawing.Point(690, 17);
+            this.stepEV.Location = new System.Drawing.Point(591, 18);
             this.stepEV.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.stepEV.Name = "stepEV";
-            this.stepEV.Size = new System.Drawing.Size(41, 21);
+            this.stepEV.Size = new System.Drawing.Size(35, 20);
             this.stepEV.TabIndex = 7;
             this.stepEV.Value = new decimal(new int[] {
             10,
@@ -303,9 +308,9 @@
             // 
             // btnEVp
             // 
-            this.btnEVp.Location = new System.Drawing.Point(540, 3);
+            this.btnEVp.Location = new System.Drawing.Point(463, 3);
             this.btnEVp.Name = "btnEVp";
-            this.btnEVp.Size = new System.Drawing.Size(84, 49);
+            this.btnEVp.Size = new System.Drawing.Size(72, 53);
             this.btnEVp.TabIndex = 3;
             this.btnEVp.Text = "EV +\n( ] )";
             this.btnEVp.UseVisualStyleBackColor = true;
@@ -315,18 +320,18 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 12F);
-            this.label7.Location = new System.Drawing.Point(3, 17);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(3, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 16);
+            this.label7.Size = new System.Drawing.Size(76, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Exposure";
             // 
             // btnEVm
             // 
-            this.btnEVm.Location = new System.Drawing.Point(84, 3);
+            this.btnEVm.Location = new System.Drawing.Point(72, 3);
             this.btnEVm.Name = "btnEVm";
-            this.btnEVm.Size = new System.Drawing.Size(83, 49);
+            this.btnEVm.Size = new System.Drawing.Size(71, 53);
             this.btnEVm.TabIndex = 1;
             this.btnEVm.Text = "EV -\n( [ )";
             this.btnEVm.UseVisualStyleBackColor = true;
@@ -335,10 +340,10 @@
             // 
             // sldEV
             // 
-            this.sldEV.Location = new System.Drawing.Point(166, 7);
+            this.sldEV.Location = new System.Drawing.Point(142, 8);
             this.sldEV.Maximum = 10000;
             this.sldEV.Name = "sldEV";
-            this.sldEV.Size = new System.Drawing.Size(324, 45);
+            this.sldEV.Size = new System.Drawing.Size(278, 45);
             this.sldEV.TabIndex = 0;
             this.sldEV.TabStop = false;
             this.sldEV.Value = 5000;
@@ -354,48 +359,48 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.btnApShallow);
             this.panel3.Controls.Add(this.sldAp);
-            this.panel3.Location = new System.Drawing.Point(12, 170);
+            this.panel3.Location = new System.Drawing.Point(10, 184);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(737, 55);
+            this.panel3.Size = new System.Drawing.Size(632, 60);
             this.panel3.TabIndex = 10;
             // 
             // lbApF
             // 
             this.lbApF.AutoSize = true;
-            this.lbApF.Location = new System.Drawing.Point(487, 29);
+            this.lbApF.Location = new System.Drawing.Point(417, 31);
             this.lbApF.Name = "lbApF";
-            this.lbApF.Size = new System.Drawing.Size(18, 12);
+            this.lbApF.Size = new System.Drawing.Size(16, 13);
             this.lbApF.TabIndex = 10;
             this.lbApF.Text = "-F";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(630, 21);
+            this.label9.Location = new System.Drawing.Point(540, 23);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 12);
+            this.label9.Size = new System.Drawing.Size(47, 13);
             this.label9.TabIndex = 9;
             this.label9.Text = "Strength";
             // 
             // lbApPer
             // 
             this.lbApPer.AutoSize = true;
-            this.lbApPer.Location = new System.Drawing.Point(487, 11);
+            this.lbApPer.Location = new System.Drawing.Point(417, 12);
             this.lbApPer.Name = "lbApPer";
-            this.lbApPer.Size = new System.Drawing.Size(21, 12);
+            this.lbApPer.Size = new System.Drawing.Size(21, 13);
             this.lbApPer.TabIndex = 8;
             this.lbApPer.Text = "0%";
             // 
             // stepAp
             // 
-            this.stepAp.Location = new System.Drawing.Point(690, 17);
+            this.stepAp.Location = new System.Drawing.Point(591, 18);
             this.stepAp.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.stepAp.Name = "stepAp";
-            this.stepAp.Size = new System.Drawing.Size(41, 21);
+            this.stepAp.Size = new System.Drawing.Size(35, 20);
             this.stepAp.TabIndex = 7;
             this.stepAp.Value = new decimal(new int[] {
             10,
@@ -405,9 +410,9 @@
             // 
             // btnApGreat
             // 
-            this.btnApGreat.Location = new System.Drawing.Point(540, 3);
+            this.btnApGreat.Location = new System.Drawing.Point(463, 3);
             this.btnApGreat.Name = "btnApGreat";
-            this.btnApGreat.Size = new System.Drawing.Size(84, 49);
+            this.btnApGreat.Size = new System.Drawing.Size(72, 53);
             this.btnApGreat.TabIndex = 3;
             this.btnApGreat.Text = "Greatest\n( \' )";
             this.btnApGreat.UseVisualStyleBackColor = true;
@@ -417,18 +422,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 12F);
-            this.label11.Location = new System.Drawing.Point(3, 17);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(3, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 16);
+            this.label11.Size = new System.Drawing.Size(71, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Aperture";
             // 
             // btnApShallow
             // 
-            this.btnApShallow.Location = new System.Drawing.Point(84, 3);
+            this.btnApShallow.Location = new System.Drawing.Point(72, 3);
             this.btnApShallow.Name = "btnApShallow";
-            this.btnApShallow.Size = new System.Drawing.Size(83, 49);
+            this.btnApShallow.Size = new System.Drawing.Size(71, 53);
             this.btnApShallow.TabIndex = 1;
             this.btnApShallow.Text = "Shallow\n( ; )";
             this.btnApShallow.UseVisualStyleBackColor = true;
@@ -437,10 +442,10 @@
             // 
             // sldAp
             // 
-            this.sldAp.Location = new System.Drawing.Point(166, 7);
+            this.sldAp.Location = new System.Drawing.Point(142, 8);
             this.sldAp.Maximum = 10000;
             this.sldAp.Name = "sldAp";
-            this.sldAp.Size = new System.Drawing.Size(324, 45);
+            this.sldAp.Size = new System.Drawing.Size(278, 45);
             this.sldAp.TabIndex = 0;
             this.sldAp.TabStop = false;
             this.sldAp.Scroll += new System.EventHandler(this.sldAp_Scroll);
@@ -454,39 +459,39 @@
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.btnFocusClo);
             this.panel4.Controls.Add(this.sldFocus);
-            this.panel4.Location = new System.Drawing.Point(12, 228);
+            this.panel4.Location = new System.Drawing.Point(10, 247);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(737, 55);
+            this.panel4.Size = new System.Drawing.Size(632, 60);
             this.panel4.TabIndex = 10;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(630, 21);
+            this.label13.Location = new System.Drawing.Point(540, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 12);
+            this.label13.Size = new System.Drawing.Size(47, 13);
             this.label13.TabIndex = 9;
             this.label13.Text = "Strength";
             // 
             // lbFocus
             // 
             this.lbFocus.AutoSize = true;
-            this.lbFocus.Location = new System.Drawing.Point(487, 21);
+            this.lbFocus.Location = new System.Drawing.Point(417, 23);
             this.lbFocus.Name = "lbFocus";
-            this.lbFocus.Size = new System.Drawing.Size(21, 12);
+            this.lbFocus.Size = new System.Drawing.Size(21, 13);
             this.lbFocus.TabIndex = 8;
             this.lbFocus.Text = "0%";
             // 
             // stepFocus
             // 
-            this.stepFocus.Location = new System.Drawing.Point(690, 17);
+            this.stepFocus.Location = new System.Drawing.Point(591, 18);
             this.stepFocus.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.stepFocus.Name = "stepFocus";
-            this.stepFocus.Size = new System.Drawing.Size(41, 21);
+            this.stepFocus.Size = new System.Drawing.Size(35, 20);
             this.stepFocus.TabIndex = 7;
             this.stepFocus.Value = new decimal(new int[] {
             10,
@@ -496,9 +501,9 @@
             // 
             // btnFocusFur
             // 
-            this.btnFocusFur.Location = new System.Drawing.Point(540, 3);
+            this.btnFocusFur.Location = new System.Drawing.Point(463, 3);
             this.btnFocusFur.Name = "btnFocusFur";
-            this.btnFocusFur.Size = new System.Drawing.Size(84, 49);
+            this.btnFocusFur.Size = new System.Drawing.Size(72, 53);
             this.btnFocusFur.TabIndex = 3;
             this.btnFocusFur.Text = "Further\n( 0 )";
             this.btnFocusFur.UseVisualStyleBackColor = true;
@@ -508,18 +513,18 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("굴림", 12F);
-            this.label15.Location = new System.Drawing.Point(3, 17);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label15.Location = new System.Drawing.Point(3, 18);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 16);
+            this.label15.Size = new System.Drawing.Size(53, 20);
             this.label15.TabIndex = 2;
             this.label15.Text = "Focus";
             // 
             // btnFocusClo
             // 
-            this.btnFocusClo.Location = new System.Drawing.Point(84, 3);
+            this.btnFocusClo.Location = new System.Drawing.Point(72, 3);
             this.btnFocusClo.Name = "btnFocusClo";
-            this.btnFocusClo.Size = new System.Drawing.Size(83, 49);
+            this.btnFocusClo.Size = new System.Drawing.Size(71, 53);
             this.btnFocusClo.TabIndex = 1;
             this.btnFocusClo.Text = "Closer\n( 9 )";
             this.btnFocusClo.UseVisualStyleBackColor = true;
@@ -528,10 +533,10 @@
             // 
             // sldFocus
             // 
-            this.sldFocus.Location = new System.Drawing.Point(166, 7);
+            this.sldFocus.Location = new System.Drawing.Point(142, 8);
             this.sldFocus.Maximum = 10000;
             this.sldFocus.Name = "sldFocus";
-            this.sldFocus.Size = new System.Drawing.Size(324, 45);
+            this.sldFocus.Size = new System.Drawing.Size(278, 45);
             this.sldFocus.TabIndex = 0;
             this.sldFocus.TabStop = false;
             this.sldFocus.Scroll += new System.EventHandler(this.sldFocus_Scroll);
@@ -550,22 +555,23 @@
             this.tableLayoutPanel1.Controls.Add(this.btnDroneHold, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDroneSwitch, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 18);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 175);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(196, 190);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.stepMoveH);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(3, 119);
+            this.panel1.Location = new System.Drawing.Point(3, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 52);
+            this.panel1.Size = new System.Drawing.Size(59, 56);
             this.panel1.TabIndex = 12;
             // 
             // stepMoveH
@@ -576,14 +582,14 @@
             0,
             0,
             131072});
-            this.stepMoveH.Location = new System.Drawing.Point(2, 26);
+            this.stepMoveH.Location = new System.Drawing.Point(2, 28);
             this.stepMoveH.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.stepMoveH.Name = "stepMoveH";
-            this.stepMoveH.Size = new System.Drawing.Size(68, 21);
+            this.stepMoveH.Size = new System.Drawing.Size(58, 20);
             this.stepMoveH.TabIndex = 1;
             this.stepMoveH.Value = new decimal(new int[] {
             5,
@@ -594,17 +600,17 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 10);
+            this.label10.Location = new System.Drawing.Point(3, 11);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Left/Right";
             // 
             // btnDroneForward
             // 
-            this.btnDroneForward.Location = new System.Drawing.Point(79, 3);
+            this.btnDroneForward.Location = new System.Drawing.Point(68, 3);
             this.btnDroneForward.Name = "btnDroneForward";
-            this.btnDroneForward.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneForward.Size = new System.Drawing.Size(59, 56);
             this.btnDroneForward.TabIndex = 6;
             this.btnDroneForward.Text = "Forward\n( I )";
             this.btnDroneForward.UseVisualStyleBackColor = true;
@@ -612,9 +618,9 @@
             // 
             // btnDroneLeft
             // 
-            this.btnDroneLeft.Location = new System.Drawing.Point(3, 61);
+            this.btnDroneLeft.Location = new System.Drawing.Point(3, 66);
             this.btnDroneLeft.Name = "btnDroneLeft";
-            this.btnDroneLeft.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneLeft.Size = new System.Drawing.Size(59, 56);
             this.btnDroneLeft.TabIndex = 7;
             this.btnDroneLeft.Text = "Left\n( J )";
             this.btnDroneLeft.UseVisualStyleBackColor = true;
@@ -622,9 +628,9 @@
             // 
             // btnDroneBackward
             // 
-            this.btnDroneBackward.Location = new System.Drawing.Point(79, 119);
+            this.btnDroneBackward.Location = new System.Drawing.Point(68, 129);
             this.btnDroneBackward.Name = "btnDroneBackward";
-            this.btnDroneBackward.Size = new System.Drawing.Size(70, 53);
+            this.btnDroneBackward.Size = new System.Drawing.Size(59, 57);
             this.btnDroneBackward.TabIndex = 8;
             this.btnDroneBackward.Text = "Backward\n( K )";
             this.btnDroneBackward.UseVisualStyleBackColor = true;
@@ -632,9 +638,9 @@
             // 
             // btnDroneRight
             // 
-            this.btnDroneRight.Location = new System.Drawing.Point(155, 61);
+            this.btnDroneRight.Location = new System.Drawing.Point(133, 66);
             this.btnDroneRight.Name = "btnDroneRight";
-            this.btnDroneRight.Size = new System.Drawing.Size(71, 52);
+            this.btnDroneRight.Size = new System.Drawing.Size(60, 56);
             this.btnDroneRight.TabIndex = 9;
             this.btnDroneRight.Text = "Right\n( L )";
             this.btnDroneRight.UseVisualStyleBackColor = true;
@@ -642,9 +648,9 @@
             // 
             // btnDroneHold
             // 
-            this.btnDroneHold.Location = new System.Drawing.Point(79, 61);
+            this.btnDroneHold.Location = new System.Drawing.Point(68, 66);
             this.btnDroneHold.Name = "btnDroneHold";
-            this.btnDroneHold.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneHold.Size = new System.Drawing.Size(59, 56);
             this.btnDroneHold.TabIndex = 12;
             this.btnDroneHold.Text = "Stop";
             this.btnDroneHold.UseVisualStyleBackColor = true;
@@ -656,7 +662,7 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(70, 52);
+            this.panel5.Size = new System.Drawing.Size(59, 56);
             this.panel5.TabIndex = 11;
             // 
             // stepMoveV
@@ -667,14 +673,14 @@
             0,
             0,
             131072});
-            this.stepMoveV.Location = new System.Drawing.Point(2, 24);
+            this.stepMoveV.Location = new System.Drawing.Point(2, 26);
             this.stepMoveV.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.stepMoveV.Name = "stepMoveV";
-            this.stepMoveV.Size = new System.Drawing.Size(68, 21);
+            this.stepMoveV.Size = new System.Drawing.Size(58, 20);
             this.stepMoveV.TabIndex = 1;
             this.stepMoveV.Value = new decimal(new int[] {
             5,
@@ -685,17 +691,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 10);
+            this.label8.Location = new System.Drawing.Point(3, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Fo/Back";
             // 
             // btnDroneSwitch
             // 
-            this.btnDroneSwitch.Location = new System.Drawing.Point(155, 3);
+            this.btnDroneSwitch.Location = new System.Drawing.Point(133, 3);
             this.btnDroneSwitch.Name = "btnDroneSwitch";
-            this.btnDroneSwitch.Size = new System.Drawing.Size(71, 52);
+            this.btnDroneSwitch.Size = new System.Drawing.Size(60, 56);
             this.btnDroneSwitch.TabIndex = 13;
             this.btnDroneSwitch.Text = "Switch\n( R Alt )";
             this.btnDroneSwitch.UseVisualStyleBackColor = true;
@@ -708,7 +714,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanel3.Controls.Add(this.btnPortrait, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnOIS, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnDoF, 1, 0);
@@ -717,24 +723,24 @@
             this.tableLayoutPanel3.Controls.Add(this.btnTrackself, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnDC, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnHandRotate, 2, 2);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(494, 286);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(255, 198);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(219, 215);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
             // btnPortrait
             // 
-            this.btnPortrait.Font = new System.Drawing.Font("굴림", 8F);
+            this.btnPortrait.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnPortrait.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPortrait.Location = new System.Drawing.Point(192, 3);
+            this.btnPortrait.Location = new System.Drawing.Point(165, 3);
             this.btnPortrait.Name = "btnPortrait";
-            this.btnPortrait.Size = new System.Drawing.Size(57, 43);
+            this.btnPortrait.Size = new System.Drawing.Size(49, 47);
             this.btnPortrait.TabIndex = 3;
             this.btnPortrait.Text = "Portrait\n(PGUP)";
             this.btnPortrait.UseVisualStyleBackColor = true;
@@ -743,9 +749,9 @@
             // 
             // btnOIS
             // 
-            this.btnOIS.Location = new System.Drawing.Point(129, 3);
+            this.btnOIS.Location = new System.Drawing.Point(111, 3);
             this.btnOIS.Name = "btnOIS";
-            this.btnOIS.Size = new System.Drawing.Size(57, 43);
+            this.btnOIS.Size = new System.Drawing.Size(48, 47);
             this.btnOIS.TabIndex = 2;
             this.btnOIS.Text = "OIS";
             this.btnOIS.UseVisualStyleBackColor = true;
@@ -754,9 +760,9 @@
             // 
             // btnDoF
             // 
-            this.btnDoF.Location = new System.Drawing.Point(66, 3);
+            this.btnDoF.Location = new System.Drawing.Point(57, 3);
             this.btnDoF.Name = "btnDoF";
-            this.btnDoF.Size = new System.Drawing.Size(57, 43);
+            this.btnDoF.Size = new System.Drawing.Size(48, 47);
             this.btnDoF.TabIndex = 1;
             this.btnDoF.Text = "DoF";
             this.btnDoF.UseVisualStyleBackColor = true;
@@ -765,10 +771,10 @@
             // 
             // btnEnable
             // 
-            this.btnEnable.Font = new System.Drawing.Font("굴림", 8F);
+            this.btnEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnEnable.Location = new System.Drawing.Point(3, 3);
             this.btnEnable.Name = "btnEnable";
-            this.btnEnable.Size = new System.Drawing.Size(57, 43);
+            this.btnEnable.Size = new System.Drawing.Size(48, 47);
             this.btnEnable.TabIndex = 0;
             this.btnEnable.Text = "Enable\n(HOME)";
             this.btnEnable.UseVisualStyleBackColor = true;
@@ -777,10 +783,10 @@
             // 
             // btnDrop
             // 
-            this.btnDrop.Font = new System.Drawing.Font("굴림", 8F);
-            this.btnDrop.Location = new System.Drawing.Point(3, 101);
+            this.btnDrop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnDrop.Location = new System.Drawing.Point(3, 109);
             this.btnDrop.Name = "btnDrop";
-            this.btnDrop.Size = new System.Drawing.Size(57, 43);
+            this.btnDrop.Size = new System.Drawing.Size(48, 47);
             this.btnDrop.TabIndex = 4;
             this.btnDrop.Text = "Drop\n( INS )";
             this.btnDrop.UseVisualStyleBackColor = true;
@@ -789,10 +795,10 @@
             // 
             // btnTrackself
             // 
-            this.btnTrackself.Font = new System.Drawing.Font("굴림", 8F);
-            this.btnTrackself.Location = new System.Drawing.Point(66, 101);
+            this.btnTrackself.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnTrackself.Location = new System.Drawing.Point(57, 109);
             this.btnTrackself.Name = "btnTrackself";
-            this.btnTrackself.Size = new System.Drawing.Size(57, 43);
+            this.btnTrackself.Size = new System.Drawing.Size(48, 47);
             this.btnTrackself.TabIndex = 5;
             this.btnTrackself.Text = "Track Self\n( DEL )";
             this.btnTrackself.UseVisualStyleBackColor = true;
@@ -801,9 +807,9 @@
             // 
             // btnDC
             // 
-            this.btnDC.Location = new System.Drawing.Point(3, 52);
+            this.btnDC.Location = new System.Drawing.Point(3, 56);
             this.btnDC.Name = "btnDC";
-            this.btnDC.Size = new System.Drawing.Size(57, 43);
+            this.btnDC.Size = new System.Drawing.Size(48, 47);
             this.btnDC.TabIndex = 6;
             this.btnDC.Text = "Movie Mode";
             this.btnDC.UseVisualStyleBackColor = true;
@@ -812,10 +818,10 @@
             // 
             // btnHandRotate
             // 
-            this.btnHandRotate.Font = new System.Drawing.Font("굴림", 8F);
-            this.btnHandRotate.Location = new System.Drawing.Point(129, 101);
+            this.btnHandRotate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnHandRotate.Location = new System.Drawing.Point(111, 109);
             this.btnHandRotate.Name = "btnHandRotate";
-            this.btnHandRotate.Size = new System.Drawing.Size(57, 43);
+            this.btnHandRotate.Size = new System.Drawing.Size(48, 47);
             this.btnHandRotate.TabIndex = 7;
             this.btnHandRotate.Text = "Hand Rotate\n(PgDn)";
             this.btnHandRotate.UseVisualStyleBackColor = true;
@@ -825,9 +831,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 286);
+            this.groupBox1.Location = new System.Drawing.Point(10, 310);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 198);
+            this.groupBox1.Size = new System.Drawing.Size(204, 215);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Drone Move";
@@ -835,9 +841,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(252, 286);
+            this.groupBox2.Location = new System.Drawing.Point(216, 310);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 198);
+            this.groupBox2.Size = new System.Drawing.Size(204, 215);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Drone Rotate";
@@ -855,13 +861,13 @@
             this.tableLayoutPanel2.Controls.Add(this.btnDroneRotRight, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnDroneRotHold, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 18);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 20);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(229, 175);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(196, 190);
             this.tableLayoutPanel2.TabIndex = 12;
             // 
             // panel7
@@ -870,7 +876,7 @@
             this.panel7.Controls.Add(this.label12);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(70, 52);
+            this.panel7.Size = new System.Drawing.Size(59, 56);
             this.panel7.TabIndex = 12;
             // 
             // stepRotV
@@ -881,14 +887,14 @@
             0,
             0,
             131072});
-            this.stepRotV.Location = new System.Drawing.Point(2, 24);
+            this.stepRotV.Location = new System.Drawing.Point(2, 26);
             this.stepRotV.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.stepRotV.Name = "stepRotV";
-            this.stepRotV.Size = new System.Drawing.Size(68, 21);
+            this.stepRotV.Size = new System.Drawing.Size(58, 20);
             this.stepRotV.TabIndex = 1;
             this.stepRotV.Value = new decimal(new int[] {
             5,
@@ -899,17 +905,17 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 9);
+            this.label12.Location = new System.Drawing.Point(3, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 12);
+            this.label12.Size = new System.Drawing.Size(54, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Up/Down";
             // 
             // btnDroneRotUp
             // 
-            this.btnDroneRotUp.Location = new System.Drawing.Point(79, 3);
+            this.btnDroneRotUp.Location = new System.Drawing.Point(68, 3);
             this.btnDroneRotUp.Name = "btnDroneRotUp";
-            this.btnDroneRotUp.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneRotUp.Size = new System.Drawing.Size(59, 56);
             this.btnDroneRotUp.TabIndex = 6;
             this.btnDroneRotUp.Text = "Up\n( ↑ )";
             this.btnDroneRotUp.UseVisualStyleBackColor = true;
@@ -917,9 +923,9 @@
             // 
             // btnDroneRotLeft
             // 
-            this.btnDroneRotLeft.Location = new System.Drawing.Point(3, 61);
+            this.btnDroneRotLeft.Location = new System.Drawing.Point(3, 66);
             this.btnDroneRotLeft.Name = "btnDroneRotLeft";
-            this.btnDroneRotLeft.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneRotLeft.Size = new System.Drawing.Size(59, 56);
             this.btnDroneRotLeft.TabIndex = 7;
             this.btnDroneRotLeft.Text = "Left\n( ← )";
             this.btnDroneRotLeft.UseVisualStyleBackColor = true;
@@ -927,9 +933,9 @@
             // 
             // btnDroneRotDown
             // 
-            this.btnDroneRotDown.Location = new System.Drawing.Point(79, 119);
+            this.btnDroneRotDown.Location = new System.Drawing.Point(68, 129);
             this.btnDroneRotDown.Name = "btnDroneRotDown";
-            this.btnDroneRotDown.Size = new System.Drawing.Size(70, 53);
+            this.btnDroneRotDown.Size = new System.Drawing.Size(59, 57);
             this.btnDroneRotDown.TabIndex = 8;
             this.btnDroneRotDown.Text = "Down\n( ↓ )";
             this.btnDroneRotDown.UseVisualStyleBackColor = true;
@@ -937,9 +943,9 @@
             // 
             // btnDroneRotRight
             // 
-            this.btnDroneRotRight.Location = new System.Drawing.Point(155, 61);
+            this.btnDroneRotRight.Location = new System.Drawing.Point(133, 66);
             this.btnDroneRotRight.Name = "btnDroneRotRight";
-            this.btnDroneRotRight.Size = new System.Drawing.Size(71, 52);
+            this.btnDroneRotRight.Size = new System.Drawing.Size(60, 56);
             this.btnDroneRotRight.TabIndex = 9;
             this.btnDroneRotRight.Text = "Right\n( → )";
             this.btnDroneRotRight.UseVisualStyleBackColor = true;
@@ -949,9 +955,9 @@
             // 
             this.panel6.Controls.Add(this.stepRotH);
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Location = new System.Drawing.Point(3, 119);
+            this.panel6.Location = new System.Drawing.Point(3, 129);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(70, 53);
+            this.panel6.Size = new System.Drawing.Size(59, 57);
             this.panel6.TabIndex = 11;
             // 
             // stepRotH
@@ -962,14 +968,14 @@
             0,
             0,
             131072});
-            this.stepRotH.Location = new System.Drawing.Point(2, 26);
+            this.stepRotH.Location = new System.Drawing.Point(2, 28);
             this.stepRotH.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.stepRotH.Name = "stepRotH";
-            this.stepRotH.Size = new System.Drawing.Size(68, 21);
+            this.stepRotH.Size = new System.Drawing.Size(58, 20);
             this.stepRotH.TabIndex = 1;
             this.stepRotH.Value = new decimal(new int[] {
             5,
@@ -980,17 +986,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 10);
+            this.label6.Location = new System.Drawing.Point(3, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 12);
+            this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Left/Right";
             // 
             // btnDroneRotHold
             // 
-            this.btnDroneRotHold.Location = new System.Drawing.Point(79, 61);
+            this.btnDroneRotHold.Location = new System.Drawing.Point(68, 66);
             this.btnDroneRotHold.Name = "btnDroneRotHold";
-            this.btnDroneRotHold.Size = new System.Drawing.Size(70, 52);
+            this.btnDroneRotHold.Size = new System.Drawing.Size(59, 56);
             this.btnDroneRotHold.TabIndex = 13;
             this.btnDroneRotHold.Text = "Stop";
             this.btnDroneRotHold.UseVisualStyleBackColor = true;
@@ -1003,17 +1009,17 @@
             this.groupBox3.Controls.Add(this.btnConnect);
             this.groupBox3.Controls.Add(this.Port);
             this.groupBox3.Controls.Add(this.IPAddr);
-            this.groupBox3.Location = new System.Drawing.Point(12, 6);
+            this.groupBox3.Location = new System.Drawing.Point(10, 7);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(737, 45);
+            this.groupBox3.Size = new System.Drawing.Size(632, 49);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             // 
             // btnShortkey
             // 
-            this.btnShortkey.Location = new System.Drawing.Point(290, 13);
+            this.btnShortkey.Location = new System.Drawing.Point(249, 14);
             this.btnShortkey.Name = "btnShortkey";
-            this.btnShortkey.Size = new System.Drawing.Size(116, 23);
+            this.btnShortkey.Size = new System.Drawing.Size(99, 25);
             this.btnShortkey.TabIndex = 4;
             this.btnShortkey.Text = "Enable Shortkey";
             this.btnShortkey.UseVisualStyleBackColor = true;
@@ -1022,18 +1028,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(591, 12);
+            this.label2.Location = new System.Drawing.Point(507, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 24);
+            this.label2.Size = new System.Drawing.Size(121, 26);
             this.label2.TabIndex = 3;
             this.label2.Text = "Developed By :  Arizen  \nForEstu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(199, 13);
+            this.btnConnect.Location = new System.Drawing.Point(171, 14);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(85, 23);
+            this.btnConnect.Size = new System.Drawing.Size(73, 25);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -1041,7 +1047,7 @@
             // 
             // Port
             // 
-            this.Port.Location = new System.Drawing.Point(118, 15);
+            this.Port.Location = new System.Drawing.Point(101, 16);
             this.Port.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1053,7 +1059,7 @@
             0,
             0});
             this.Port.Name = "Port";
-            this.Port.Size = new System.Drawing.Size(75, 21);
+            this.Port.Size = new System.Drawing.Size(64, 20);
             this.Port.TabIndex = 1;
             this.Port.Value = new decimal(new int[] {
             9000,
@@ -1063,9 +1069,9 @@
             // 
             // IPAddr
             // 
-            this.IPAddr.Location = new System.Drawing.Point(7, 15);
+            this.IPAddr.Location = new System.Drawing.Point(6, 16);
             this.IPAddr.Name = "IPAddr";
-            this.IPAddr.Size = new System.Drawing.Size(100, 21);
+            this.IPAddr.Size = new System.Drawing.Size(86, 20);
             this.IPAddr.TabIndex = 0;
             this.IPAddr.Text = "127.0.0.1";
             // 
@@ -1112,17 +1118,58 @@
             // lbVer
             // 
             this.lbVer.AutoSize = true;
-            this.lbVer.Location = new System.Drawing.Point(692, 473);
+            this.lbVer.Location = new System.Drawing.Point(593, 512);
             this.lbVer.Name = "lbVer";
-            this.lbVer.Size = new System.Drawing.Size(65, 12);
+            this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.stepMoveVUpDown);
+            this.panel8.Location = new System.Drawing.Point(133, 129);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(60, 58);
+            this.panel8.TabIndex = 14;
+            // 
+            // stepMoveVUpDown
+            // 
+            this.stepMoveVUpDown.DecimalPlaces = 2;
+            this.stepMoveVUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.stepMoveVUpDown.Location = new System.Drawing.Point(0, 35);
+            this.stepMoveVUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.stepMoveVUpDown.Name = "stepMoveVUpDown";
+            this.stepMoveVUpDown.Size = new System.Drawing.Size(60, 20);
+            this.stepMoveVUpDown.TabIndex = 0;
+            this.stepMoveVUpDown.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            131072});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 26);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Up (O) /\r\nDown (U)";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 489);
+            this.ClientSize = new System.Drawing.Size(652, 530);
             this.Controls.Add(this.lbVer);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1174,6 +1221,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1267,6 +1317,9 @@
         private System.Windows.Forms.NumericUpDown stepRotV;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnDroneSwitch;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown stepMoveVUpDown;
     }
 }
 

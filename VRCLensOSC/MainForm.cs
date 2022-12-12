@@ -213,6 +213,16 @@ namespace VRCLensOSC
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
                     if (DroneKey != 1) UseDrone(212, true);
                     break;
+                case Keys.O:
+                    osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", (float)stepMoveVUpDown.Value));
+                    if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
+                    if (DroneKey != 1) UseDrone(212, true);
+                    break;
+                case Keys.U:
+                    osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", -(float)stepMoveVUpDown.Value));
+                    if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
+                    if (DroneKey != 1) UseDrone(212, true);
+                    break;
                 case Keys.Up:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", (float)stepRotV.Value));
                     if (DroneRotKey % (int)e.KeyCode != 0) DroneRotKey *= (int)e.KeyCode;
@@ -304,6 +314,22 @@ namespace VRCLensOSC
                     {
                         DroneKey /= (int)e.KeyCode;
                         osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", 0f));
+                    }
+                    if (DroneKey == 1) UseDrone(212, false);
+                    break;
+                case Keys.O:
+                    if (DroneKey % (int)e.KeyCode == 0)
+                    {
+                        DroneKey /= (int)e.KeyCode;
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", 0f));
+                    }
+                    if (DroneKey == 1) UseDrone(212, false);
+                    break;
+                case Keys.U:
+                    if (DroneKey % (int)e.KeyCode == 0)
+                    {
+                        DroneKey /= (int)e.KeyCode;
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", 0f));
                     }
                     if (DroneKey == 1) UseDrone(212, false);
                     break;
