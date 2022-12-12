@@ -606,7 +606,7 @@
             this.btnDroneForward.Name = "btnDroneForward";
             this.btnDroneForward.Size = new System.Drawing.Size(70, 52);
             this.btnDroneForward.TabIndex = 6;
-            this.btnDroneForward.Text = "Foward\n( T )";
+            this.btnDroneForward.Text = "Forward\n( I )";
             this.btnDroneForward.UseVisualStyleBackColor = true;
             this.btnDroneForward.Click += new System.EventHandler(this.btnDroneForward_Click);
             // 
@@ -616,7 +616,7 @@
             this.btnDroneLeft.Name = "btnDroneLeft";
             this.btnDroneLeft.Size = new System.Drawing.Size(70, 52);
             this.btnDroneLeft.TabIndex = 7;
-            this.btnDroneLeft.Text = "Left\n( F )";
+            this.btnDroneLeft.Text = "Left\n( J )";
             this.btnDroneLeft.UseVisualStyleBackColor = true;
             this.btnDroneLeft.Click += new System.EventHandler(this.btnDroneLeft_Click);
             // 
@@ -626,7 +626,7 @@
             this.btnDroneBackward.Name = "btnDroneBackward";
             this.btnDroneBackward.Size = new System.Drawing.Size(70, 53);
             this.btnDroneBackward.TabIndex = 8;
-            this.btnDroneBackward.Text = "Backward\n( G )";
+            this.btnDroneBackward.Text = "Backward\n( K )";
             this.btnDroneBackward.UseVisualStyleBackColor = true;
             this.btnDroneBackward.Click += new System.EventHandler(this.BtnDroneBackward_Click);
             // 
@@ -636,7 +636,7 @@
             this.btnDroneRight.Name = "btnDroneRight";
             this.btnDroneRight.Size = new System.Drawing.Size(71, 52);
             this.btnDroneRight.TabIndex = 9;
-            this.btnDroneRight.Text = "Right\n( H )";
+            this.btnDroneRight.Text = "Right\n( L )";
             this.btnDroneRight.UseVisualStyleBackColor = true;
             this.btnDroneRight.Click += new System.EventHandler(this.btnDroneRight_Click);
             // 
@@ -697,7 +697,7 @@
             this.btnDroneSwitch.Name = "btnDroneSwitch";
             this.btnDroneSwitch.Size = new System.Drawing.Size(71, 52);
             this.btnDroneSwitch.TabIndex = 13;
-            this.btnDroneSwitch.Text = "Switch\n( U )";
+            this.btnDroneSwitch.Text = "Switch\n( R Alt )";
             this.btnDroneSwitch.UseVisualStyleBackColor = true;
             this.btnDroneSwitch.Click += new System.EventHandler(this.btnDroneSwitch_Click);
             // 
@@ -817,7 +817,7 @@
             this.btnHandRotate.Name = "btnHandRotate";
             this.btnHandRotate.Size = new System.Drawing.Size(57, 43);
             this.btnHandRotate.TabIndex = 7;
-            this.btnHandRotate.Text = "Hand Rotate\n( END )";
+            this.btnHandRotate.Text = "Hand Rotate\n(PgDn)";
             this.btnHandRotate.UseVisualStyleBackColor = true;
             this.btnHandRotate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnHandRotate_MouseDown);
             this.btnHandRotate.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnHandRotate_MouseUp);

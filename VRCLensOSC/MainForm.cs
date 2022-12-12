@@ -193,22 +193,22 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
                 case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
                 case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
-                case Keys.T:
+                case Keys.I:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", (float)stepMoveV.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
                     if (DroneKey != 1) UseDrone(212, true);
                     break;
-                case Keys.F:
+                case Keys.J:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", -(float)stepMoveH.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
                     if (DroneKey != 1) UseDrone(212, true);
                     break;
-                case Keys.G:
+                case Keys.K:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", -(float)stepMoveV.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
                     if (DroneKey != 1) UseDrone(212, true);
                     break;
-                case Keys.H:
+                case Keys.L:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", (float)stepMoveH.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
                     if (DroneKey != 1) UseDrone(212, true);
@@ -233,7 +233,7 @@ namespace VRCLensOSC
                     if (DroneRotKey % (int)e.KeyCode != 0) DroneRotKey *= (int)e.KeyCode;
                     if (DroneRotKey != 1) UseDrone(213, true);
                     break;
-                case Keys.U:
+                case Keys.RMenu:
                     if(btnDroneSwitch.Enabled)
                     {
                         btnDroneSwitch.Enabled = false;
@@ -248,7 +248,7 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 241));
                     btnTrackself.Enabled = false;
                     break;
-                case Keys.End:
+                case Keys.PageDown:
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 250));
                     btnHandRotate.Enabled = false;
                     break;
@@ -275,7 +275,7 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = false; btnApGreat.Enabled = true; break;
                 case Keys.D9: TimerFocusClo.Enabled = false; btnFocusClo.Enabled = true; break;
                 case Keys.D0: TimerFocusFur.Enabled = false; btnFocusFur.Enabled = true; break;
-                case Keys.T:
+                case Keys.I:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
                         DroneKey /= (int)e.KeyCode;
@@ -283,7 +283,7 @@ namespace VRCLensOSC
                     }
                     if (DroneKey == 1) UseDrone(212, false);
                     break;
-                case Keys.F:
+                case Keys.J:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
                         DroneKey /= (int)e.KeyCode;
@@ -291,7 +291,7 @@ namespace VRCLensOSC
                     }
                     if (DroneKey == 1) UseDrone(212, false);
                     break;
-                case Keys.G:
+                case Keys.K:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
                         DroneKey /= (int)e.KeyCode;
@@ -299,7 +299,7 @@ namespace VRCLensOSC
                     }
                     if (DroneKey == 1) UseDrone(212, false);
                     break;
-                case Keys.H:
+                case Keys.L:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
                         DroneKey /= (int)e.KeyCode;
@@ -339,7 +339,7 @@ namespace VRCLensOSC
                     }
                     if (DroneRotKey == 1) UseDrone(213, false);
                     break;
-                case Keys.U:
+                case Keys.RMenu:
                     btnDroneSwitch.Enabled = true;
                     break;
                 case Keys.Insert:
@@ -350,7 +350,7 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                     btnTrackself.Enabled = true;
                     break;
-                case Keys.End:
+                case Keys.PageDown:
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                     btnHandRotate.Enabled = true;
                     break;
