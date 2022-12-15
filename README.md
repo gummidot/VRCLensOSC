@@ -23,6 +23,32 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
     4. Select the existing transition from `RotateV` to `RotateH`. Add a condition, `VRCLDroneSwitch NotEqual 6`.
 4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
 
+## Personal Modifications
+
+- Remapped Drone Move Forward (T)/Left (F)/Right (H)/Back (G) to IJKL
+- Remapped Drone Move Switch (Y) to Right Alt
+- Remapped Hand Rotate (End) to Page Down
+- Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
+
+### 3-dimensional movement setup
+
+To enable vertical drone movement with the Drove Move Up (O) and Down (U) keys in horizontal movement mode:
+
+1. Add a `VRCLDroneV` Float parameter to Expression Menu parameters (default `0`, Saved unchecked)
+2. Add a `VRCLDroneV` Float parameter to FX Layer parameters (default `0`)
+3. Open FX Layer in Animator. In the `vCNP_Drone 212-214 i234` layer:
+    1. Double click to open the `MoveH` blend tree.
+    2. Right click the blend tree and add a new 1D blend tree. Set Parameter to `VRCLDroneV` and add 3 motion fields. Uncheck Automate Thresholds. Set motion fields with thresholds: `MovFastDown` (`-1`), `MovNeutral` (`0`), and `MovFastUp` (`1`).
+    3. Repeat step 2 to create 5 identical nested 1D blend trees, one for each direction (ahead/behind/left/right/neutral). For their `Pos X`/`Pos Y` values, use `(0,1)`, `(0,-1)`, `(1,0)`, `(-1,0)`, and `(0,0)`.
+4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
+
+![MoveH blend tree](docs/3d_mod_MoveH.jpg)
+![DroneV blend tree](docs/3d_mod_DroneV.jpg)
+
+### Upgrading VRCLens
+
+When upgrading VRCLens, all animator layer modifications are reset when you re-apply VRCLens, so you'll have to repeat the Animator setup steps (but don't have to re-add the custom added parameters).
+
 ## Usage
 
 - Run VRCLensOSC.exe
@@ -37,7 +63,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 
 ## Compatibility
 
-- Last tested with VRCLens v1.8.0
+- Last tested with VRCLens v1.8.1
 
 ## Build from source
 
@@ -47,8 +73,18 @@ Requirements:
   - Or Build Tools for Visual Studio 2017 (https://visualstudio.microsoft.com/vs/older-downloads/) and NuGet (https://learn.microsoft.com/en-us/nuget/consume-packages/install-use-packages-nuget-cli)
 - .NET Framework 4.7.2: https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 
-```cmd
+```powershell
 nuget restore
 
-msbuild /property:Configuration=Release
+msbuild -p:Configuration=Release
+
+# Then run VRCLensOSC\bin\Release\VRCLensOSC.exe
 ```
+
+## Distributing
+
+When distributing, these files must be included in the same directory:
+
+- `VRCLensOSC.exe`
+- `Rug.Osc.dll`
+- `Gma.System.MouseKeyHook.dll`
