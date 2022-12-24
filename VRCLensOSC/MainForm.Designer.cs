@@ -796,7 +796,7 @@
             this.btnOIS.Name = "btnOIS";
             this.btnOIS.Size = new System.Drawing.Size(48, 47);
             this.btnOIS.TabIndex = 2;
-            this.btnOIS.Text = "OIS";
+            this.btnOIS.Text = "Stabiliz\r\n(Ctrl+\r\nPgDn)";
             this.btnOIS.UseVisualStyleBackColor = true;
             this.btnOIS.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnOIS_MouseDown);
             this.btnOIS.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnOIS_MouseUp);

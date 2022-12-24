@@ -27,7 +27,8 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Remapped Drone Move Switch (Y) to Right Alt
 - Remapped Hand Rotate (End) to Page Down
 - Added button to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
-- Added Home hotkey to toggle DoF. Remapped Enable Drone to Ctrl+Home.
+- Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl+Home.
+- Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
 
 ### 3-dimensional movement setup

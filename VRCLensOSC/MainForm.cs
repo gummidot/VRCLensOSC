@@ -259,8 +259,13 @@ namespace VRCLensOSC
                     btnTrackself.Enabled = false;
                     break;
                 case Keys.PageDown:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 250));
-                    btnHandRotate.Enabled = false;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 14));
+                        btnOIS.Enabled = false;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 250));
+                        btnHandRotate.Enabled = false;
+                    }
                     break;
                 case Keys.Home:
                     if (e.Control) {
@@ -386,8 +391,13 @@ namespace VRCLensOSC
                     btnTrackself.Enabled = true;
                     break;
                 case Keys.PageDown:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnHandRotate.Enabled = true;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnOIS.Enabled = true;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnHandRotate.Enabled = true;
+                    }
                     break;
                 case Keys.Home:
                     if (e.Control) {
