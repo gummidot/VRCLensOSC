@@ -2,13 +2,11 @@
 
 ## Installation
 
-Download version 1.0.9f: https://cafe.naver.com/steamindiegame/8490301
+Download version 1.1.0b: https://cafe.naver.com/steamindiegame/7077159
 
 And buy from Booth to support the creator: https://booth.pm/en/items/4049205?BOOTH-APP-CLIENT-VERSION=BOOTH-APP-CLIENT-VERSIONsavik%27%3C%2F
 
-The original version on Booth (1.0.9b) has minor issues with hotkey overlapping that was fixed by ForEstu in 1.0.9f. You can download 1.0.9b at https://cafe.naver.com/steamindiegame/7077159.
-
-Or build from source (1.0.9b): https://github.com/liArizenil/VRCLensOSC
+Or build from source: https://github.com/liArizenil/VRCLensOSC
 
 ## Setup
 
