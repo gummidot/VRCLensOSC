@@ -77,6 +77,9 @@
             this.stepMoveV = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.btnDroneSwitch = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.stepMoveVUpDown = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPortrait = new System.Windows.Forms.Button();
             this.btnOIS = new System.Windows.Forms.Button();
@@ -116,9 +119,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.stepMoveVUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnTrackPivot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -136,6 +137,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveH)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveV)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -146,8 +149,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepRotH)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
@@ -707,6 +708,47 @@
             this.btnDroneSwitch.UseVisualStyleBackColor = true;
             this.btnDroneSwitch.Click += new System.EventHandler(this.btnDroneSwitch_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.stepMoveVUpDown);
+            this.panel8.Location = new System.Drawing.Point(133, 129);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(60, 58);
+            this.panel8.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 26);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Up (O) /\r\nDown (U)";
+            // 
+            // stepMoveVUpDown
+            // 
+            this.stepMoveVUpDown.DecimalPlaces = 2;
+            this.stepMoveVUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.stepMoveVUpDown.Location = new System.Drawing.Point(0, 35);
+            this.stepMoveVUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.stepMoveVUpDown.Name = "stepMoveVUpDown";
+            this.stepMoveVUpDown.Size = new System.Drawing.Size(60, 20);
+            this.stepMoveVUpDown.TabIndex = 0;
+            this.stepMoveVUpDown.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            131072});
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -723,6 +765,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnTrackself, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnDC, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnHandRotate, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnTrackPivot, 1, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -742,7 +785,7 @@
             this.btnPortrait.Name = "btnPortrait";
             this.btnPortrait.Size = new System.Drawing.Size(49, 47);
             this.btnPortrait.TabIndex = 3;
-            this.btnPortrait.Text = "Portrait\n(PGUP)";
+            this.btnPortrait.Text = "Portrait\n";
             this.btnPortrait.UseVisualStyleBackColor = true;
             this.btnPortrait.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPortrait_MouseDown);
             this.btnPortrait.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPortrait_MouseUp);
@@ -1124,46 +1167,14 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
-            // panel8
+            // btnTrackPivot
             // 
-            this.panel8.Controls.Add(this.label3);
-            this.panel8.Controls.Add(this.stepMoveVUpDown);
-            this.panel8.Location = new System.Drawing.Point(133, 129);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(60, 58);
-            this.panel8.TabIndex = 14;
-            // 
-            // stepMoveVUpDown
-            // 
-            this.stepMoveVUpDown.DecimalPlaces = 2;
-            this.stepMoveVUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.stepMoveVUpDown.Location = new System.Drawing.Point(0, 35);
-            this.stepMoveVUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.stepMoveVUpDown.Name = "stepMoveVUpDown";
-            this.stepMoveVUpDown.Size = new System.Drawing.Size(60, 20);
-            this.stepMoveVUpDown.TabIndex = 0;
-            this.stepMoveVUpDown.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            131072});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 26);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Up (O) /\r\nDown (U)";
+            this.btnTrackPivot.Location = new System.Drawing.Point(57, 162);
+            this.btnTrackPivot.Name = "btnTrackPivot";
+            this.btnTrackPivot.Size = new System.Drawing.Size(48, 50);
+            this.btnTrackPivot.TabIndex = 8;
+            this.btnTrackPivot.Text = "Track Pivot (PgUp)";
+            this.btnTrackPivot.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1208,6 +1219,9 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveV)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1221,9 +1235,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1320,6 +1331,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown stepMoveVUpDown;
+        private System.Windows.Forms.Button btnTrackPivot;
     }
 }
 

@@ -266,9 +266,13 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 254));
                     btnEnable.Enabled = false;
                     break;
+                // Disable hotkey for Portrait toggle
+                // case Keys.PageUp:
+                //     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 222));
+                //     btnPortrait.Enabled = false;
                 case Keys.PageUp:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 222));
-                    btnPortrait.Enabled = false;
+                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 242));
+                    btnTrackPivot.Enabled = false;
                     break;
             }
         }
@@ -384,9 +388,13 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                     btnEnable.Enabled = true;
                     break;
+                // Disable hotkey for Portrait toggle
+                // case Keys.PageUp:
+                //     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                //     btnPortrait.Enabled = true;
                 case Keys.PageUp:
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnPortrait.Enabled = true;
+                    btnTrackPivot.Enabled = true;
                     break;
             }
         }
@@ -705,6 +713,22 @@ namespace VRCLensOSC
         }
 
         private void btnTrackself_MouseUp(object sender, MouseEventArgs e)
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+        }
+
+        #endregion
+
+        //------------------------------------------------------------------------------------
+
+        #region Control Panel - TrackPivot
+
+        private void btnTrackPivot_MouseDown(object sender, MouseEventArgs e)
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 242));
+        }
+
+        private void btnTrackPivot_MouseUp(object sender, MouseEventArgs e)
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
         }
