@@ -263,8 +263,13 @@ namespace VRCLensOSC
                     btnHandRotate.Enabled = false;
                     break;
                 case Keys.Home:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 254));
-                    btnEnable.Enabled = false;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 254));
+                        btnEnable.Enabled = false;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 11));
+                        btnDoF.Enabled = false;
+                    }
                     break;
                 // Disable hotkey for Portrait toggle
                 // case Keys.PageUp:
@@ -385,8 +390,13 @@ namespace VRCLensOSC
                     btnHandRotate.Enabled = true;
                     break;
                 case Keys.Home:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnEnable.Enabled = true;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnEnable.Enabled = true;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnDoF.Enabled = true;
+                    }
                     break;
                 // Disable hotkey for Portrait toggle
                 // case Keys.PageUp:

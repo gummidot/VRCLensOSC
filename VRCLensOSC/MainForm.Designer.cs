@@ -89,6 +89,7 @@
             this.btnTrackself = new System.Windows.Forms.Button();
             this.btnDC = new System.Windows.Forms.Button();
             this.btnHandRotate = new System.Windows.Forms.Button();
+            this.btnTrackPivot = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -119,7 +120,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnTrackPivot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -807,7 +807,7 @@
             this.btnDoF.Name = "btnDoF";
             this.btnDoF.Size = new System.Drawing.Size(48, 47);
             this.btnDoF.TabIndex = 1;
-            this.btnDoF.Text = "DoF";
+            this.btnDoF.Text = "DoF (Hom)";
             this.btnDoF.UseVisualStyleBackColor = true;
             this.btnDoF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDoF_MouseDown);
             this.btnDoF.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDoF_MouseUp);
@@ -819,7 +819,7 @@
             this.btnEnable.Name = "btnEnable";
             this.btnEnable.Size = new System.Drawing.Size(48, 47);
             this.btnEnable.TabIndex = 0;
-            this.btnEnable.Text = "Enable\n(HOME)";
+            this.btnEnable.Text = "Enable\r\n(Ctrl+\r\nHome)";
             this.btnEnable.UseVisualStyleBackColor = true;
             this.btnEnable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnEnable_MouseDown);
             this.btnEnable.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnEnable_MouseUp);
@@ -870,6 +870,15 @@
             this.btnHandRotate.UseVisualStyleBackColor = true;
             this.btnHandRotate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnHandRotate_MouseDown);
             this.btnHandRotate.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnHandRotate_MouseUp);
+            // 
+            // btnTrackPivot
+            // 
+            this.btnTrackPivot.Location = new System.Drawing.Point(57, 162);
+            this.btnTrackPivot.Name = "btnTrackPivot";
+            this.btnTrackPivot.Size = new System.Drawing.Size(48, 50);
+            this.btnTrackPivot.TabIndex = 8;
+            this.btnTrackPivot.Text = "Track Pivot (PgUp)";
+            this.btnTrackPivot.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1166,15 +1175,6 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
-            // 
-            // btnTrackPivot
-            // 
-            this.btnTrackPivot.Location = new System.Drawing.Point(57, 162);
-            this.btnTrackPivot.Name = "btnTrackPivot";
-            this.btnTrackPivot.Size = new System.Drawing.Size(48, 50);
-            this.btnTrackPivot.TabIndex = 8;
-            this.btnTrackPivot.Text = "Track Pivot (PgUp)";
-            this.btnTrackPivot.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
