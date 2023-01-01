@@ -26,6 +26,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Remapped Drone Move Forward (T)/Left (F)/Right (H)/Back (G) to IJKL
 - Remapped Drone Move Switch (Y) to Right Alt
 - Remapped Hand Rotate (End) to Page Down
+- Remapped Track Self (Del) to Ctrl + Page Up
 - Added button to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
 - Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl+Home.
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)

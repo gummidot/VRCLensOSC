@@ -254,10 +254,6 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 251));
                     btnDrop.Enabled = false;
                     break;
-                case Keys.Delete:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 241));
-                    btnTrackself.Enabled = false;
-                    break;
                 case Keys.PageDown:
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 14));
@@ -281,8 +277,13 @@ namespace VRCLensOSC
                 //     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 222));
                 //     btnPortrait.Enabled = false;
                 case Keys.PageUp:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 242));
-                    btnTrackPivot.Enabled = false;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 241));
+                        btnTrackself.Enabled = false;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 242));
+                        btnTrackPivot.Enabled = false;
+                    }
                     break;
             }
         }
@@ -386,10 +387,6 @@ namespace VRCLensOSC
                     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                     btnDrop.Enabled = true;
                     break;
-                case Keys.Delete:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnTrackself.Enabled = true;
-                    break;
                 case Keys.PageDown:
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
@@ -413,8 +410,13 @@ namespace VRCLensOSC
                 //     osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                 //     btnPortrait.Enabled = true;
                 case Keys.PageUp:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnTrackPivot.Enabled = true;
+                    if (e.Control) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnTrackself.Enabled = true;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnTrackPivot.Enabled = true;
+                    }
                     break;
             }
         }

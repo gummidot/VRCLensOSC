@@ -843,7 +843,7 @@
             this.btnTrackself.Name = "btnTrackself";
             this.btnTrackself.Size = new System.Drawing.Size(48, 47);
             this.btnTrackself.TabIndex = 5;
-            this.btnTrackself.Text = "Track Self\n( DEL )";
+            this.btnTrackself.Text = "Tr.Self (Ctrl+PgUp)";
             this.btnTrackself.UseVisualStyleBackColor = true;
             this.btnTrackself.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnTrackself_MouseDown);
             this.btnTrackself.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnTrackself_MouseUp);
