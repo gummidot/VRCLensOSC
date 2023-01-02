@@ -90,6 +90,7 @@
             this.btnDC = new System.Windows.Forms.Button();
             this.btnHandRotate = new System.Windows.Forms.Button();
             this.btnTrackPivot = new System.Windows.Forms.Button();
+            this.btnAvAutoFocus = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -120,7 +121,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnAvAutoFocus = new System.Windows.Forms.Button();
+            this.btnDroneTurbo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -705,7 +706,7 @@
             this.btnDroneSwitch.Name = "btnDroneSwitch";
             this.btnDroneSwitch.Size = new System.Drawing.Size(60, 56);
             this.btnDroneSwitch.TabIndex = 13;
-            this.btnDroneSwitch.Text = "Switch\n( R Alt )";
+            this.btnDroneSwitch.Text = "Switch";
             this.btnDroneSwitch.UseVisualStyleBackColor = true;
             this.btnDroneSwitch.Click += new System.EventHandler(this.btnDroneSwitch_Click);
             // 
@@ -768,6 +769,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnHandRotate, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnTrackPivot, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.btnAvAutoFocus, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnDroneTurbo, 0, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -881,6 +883,17 @@
             this.btnTrackPivot.TabIndex = 8;
             this.btnTrackPivot.Text = "Track Pivot (PgUp)";
             this.btnTrackPivot.UseVisualStyleBackColor = true;
+            // 
+            // btnAvAutoFocus
+            // 
+            this.btnAvAutoFocus.Location = new System.Drawing.Point(57, 56);
+            this.btnAvAutoFocus.Name = "btnAvAutoFocus";
+            this.btnAvAutoFocus.Size = new System.Drawing.Size(48, 47);
+            this.btnAvAutoFocus.TabIndex = 9;
+            this.btnAvAutoFocus.Text = "Av AF (Shift+Home)";
+            this.btnAvAutoFocus.UseVisualStyleBackColor = true;
+            this.btnAvAutoFocus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseDown);
+            this.btnAvAutoFocus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseUp);
             // 
             // groupBox1
             // 
@@ -1178,16 +1191,15 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
-            // btnAvAutoFocus
+            // btnDroneTurbo
             // 
-            this.btnAvAutoFocus.Location = new System.Drawing.Point(57, 56);
-            this.btnAvAutoFocus.Name = "btnAvAutoFocus";
-            this.btnAvAutoFocus.Size = new System.Drawing.Size(48, 47);
-            this.btnAvAutoFocus.TabIndex = 9;
-            this.btnAvAutoFocus.Text = "Av AF (Shift+Home)";
-            this.btnAvAutoFocus.UseVisualStyleBackColor = true;
-            this.btnAvAutoFocus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseDown);
-            this.btnAvAutoFocus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseUp);
+            this.btnDroneTurbo.Location = new System.Drawing.Point(3, 162);
+            this.btnDroneTurbo.Name = "btnDroneTurbo";
+            this.btnDroneTurbo.Size = new System.Drawing.Size(48, 48);
+            this.btnDroneTurbo.TabIndex = 10;
+            this.btnDroneTurbo.Text = "Drone Turbo (R Alt)";
+            this.btnDroneTurbo.UseVisualStyleBackColor = true;
+            this.btnDroneTurbo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDroneTurbo_MouseDown);
             // 
             // MainForm
             // 
@@ -1346,6 +1358,7 @@
         private System.Windows.Forms.NumericUpDown stepMoveVUpDown;
         private System.Windows.Forms.Button btnTrackPivot;
         private System.Windows.Forms.Button btnAvAutoFocus;
+        private System.Windows.Forms.Button btnDroneTurbo;
     }
 }
 

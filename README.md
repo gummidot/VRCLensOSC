@@ -24,7 +24,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 ## Personal Modifications
 
 - Remapped Drone Move Forward (T)/Left (F)/Right (H)/Back (G) to IJKL
-- Remapped Drone Move Switch (Y) to Right Alt
+- Unmapped Drone Move Switch (Y)
 - Remapped Hand Rotate (End) to Page Down
 - Remapped Track Self (Del) to Ctrl + Page Up
 - Added button to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
@@ -33,6 +33,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
 - Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
+- Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)
 
 ### 3-dimensional movement setup
 
