@@ -22,6 +22,11 @@ namespace VRCLensOSC
         private int DroneRotKey = 1;
         private bool DroneSwitch = false;
 
+        public enum DroneFeatureToggle
+        {
+            PivotMove = 214
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -196,32 +201,68 @@ namespace VRCLensOSC
                 case Keys.I:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", (float)stepMoveV.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.J:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", -(float)stepMoveH.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.K:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", -(float)stepMoveV.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.L:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", (float)stepMoveH.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.O:
                     osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", (float)stepMoveVUpDown.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.U:
                     osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", -(float)stepMoveVUpDown.Value));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
-                    if (DroneKey != 1) UseDrone(212, true);
+                    if (DroneKey != 1) {
+                        if (e.Shift) {
+                            UseDrone((int)DroneFeatureToggle.PivotMove, true);
+                        } else {
+                            UseDrone(212, true);
+                        }
+                    }
                     break;
                 case Keys.Up:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", (float)stepRotV.Value));

@@ -31,6 +31,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl+Home.
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
+- Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
 
 ### 3-dimensional movement setup
 
@@ -46,6 +47,15 @@ To enable vertical drone movement with the Drove Move Up (O) and Down (U) keys i
 
 ![MoveH blend tree](docs/3d_mod_MoveH.jpg)
 ![DroneV blend tree](docs/3d_mod_DroneV.jpg)
+
+To enable vertical pivot movement with the Drove Move Up (O) and Down (U) keys:
+
+1. Open FX Layer in Animator. In the `vCNP_Drone 212-214 i234` layer:
+    1. Double click to open the `PivotMove` blend tree.
+    2. Right click the blend tree and add a new 1D blend tree. Set Parameter to `VRCLDroneV` and add 2 motion fields. Uncheck Automate Thresholds. Set motion fields with thresholds: `PivotMovDown` (`-1`), `PivotMovUp` (`1`). `PivotMovUp`/`PivotMovDown` should already exist in the VRCLens project (but just unused).
+2. Optionally adjust speed of pivot movement animations since they're very fast by default, e.g., lower from `0.2` to `0.05`.
+
+![DroneV blend tree](docs/3d_mod_DroneV_pivot.jpg)
 
 ### Upgrading VRCLens
 
