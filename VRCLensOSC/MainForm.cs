@@ -24,6 +24,7 @@ namespace VRCLensOSC
 
         public enum DroneFeatureToggle
         {
+            AvatarAutoFocus = 13,
             PivotMove = 214
         }
 
@@ -308,6 +309,9 @@ namespace VRCLensOSC
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 254));
                         btnEnable.Enabled = false;
+                    } else if (e.Shift) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle",  (int)DroneFeatureToggle.AvatarAutoFocus));
+                        btnAvAutoFocus.Enabled = false;
                     } else {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 11));
                         btnDoF.Enabled = false;
@@ -441,6 +445,9 @@ namespace VRCLensOSC
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                         btnEnable.Enabled = true;
+                    } else if (e.Shift) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnAvAutoFocus.Enabled = true;
                     } else {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                         btnDoF.Enabled = true;
@@ -712,6 +719,22 @@ namespace VRCLensOSC
         }
 
         private void btnDoF_MouseUp(object sender, MouseEventArgs e)
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+        }
+
+        #endregion
+
+        //------------------------------------------------------------------------------------
+
+        #region Control Panel - DoF
+
+        private void btnAvAutoFocus_MouseDown(object sender, MouseEventArgs e)
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.AvatarAutoFocus));
+        }
+
+        private void btnAvAutoFocus_MouseUp(object sender, MouseEventArgs e)
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
         }
