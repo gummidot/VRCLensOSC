@@ -91,6 +91,7 @@
             this.btnHandRotate = new System.Windows.Forms.Button();
             this.btnTrackPivot = new System.Windows.Forms.Button();
             this.btnAvAutoFocus = new System.Windows.Forms.Button();
+            this.btnDroneTurbo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -121,7 +122,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnDroneTurbo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -735,7 +735,7 @@
             1,
             0,
             0,
-            65536});
+            131072});
             this.stepMoveVUpDown.Location = new System.Drawing.Point(0, 35);
             this.stepMoveVUpDown.Maximum = new decimal(new int[] {
             1,
@@ -894,6 +894,16 @@
             this.btnAvAutoFocus.UseVisualStyleBackColor = true;
             this.btnAvAutoFocus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseDown);
             this.btnAvAutoFocus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAvAutoFocus_MouseUp);
+            // 
+            // btnDroneTurbo
+            // 
+            this.btnDroneTurbo.Location = new System.Drawing.Point(3, 162);
+            this.btnDroneTurbo.Name = "btnDroneTurbo";
+            this.btnDroneTurbo.Size = new System.Drawing.Size(48, 48);
+            this.btnDroneTurbo.TabIndex = 10;
+            this.btnDroneTurbo.Text = "Drone Turbo (R Alt)";
+            this.btnDroneTurbo.UseVisualStyleBackColor = true;
+            this.btnDroneTurbo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDroneTurbo_MouseDown);
             // 
             // groupBox1
             // 
@@ -1190,16 +1200,6 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
-            // 
-            // btnDroneTurbo
-            // 
-            this.btnDroneTurbo.Location = new System.Drawing.Point(3, 162);
-            this.btnDroneTurbo.Name = "btnDroneTurbo";
-            this.btnDroneTurbo.Size = new System.Drawing.Size(48, 48);
-            this.btnDroneTurbo.TabIndex = 10;
-            this.btnDroneTurbo.Text = "Drone Turbo (R Alt)";
-            this.btnDroneTurbo.UseVisualStyleBackColor = true;
-            this.btnDroneTurbo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDroneTurbo_MouseDown);
             // 
             // MainForm
             // 
