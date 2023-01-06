@@ -27,7 +27,8 @@ namespace VRCLensOSC
         public enum DroneFeatureToggle
         {
             AvatarAutoFocus = 13,
-            PivotMove = 214
+            PivotMove = 214,
+            DropPivot = 253
         }
 
         public MainForm()
@@ -301,8 +302,13 @@ namespace VRCLensOSC
                     // }
                     break;
                 case Keys.Insert:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 251));
-                    btnDrop.Enabled = false;
+                    if (e.Shift) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle",  (int)DroneFeatureToggle.DropPivot));
+                        btnDropPivot.Enabled = false;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 251));
+                        btnDrop.Enabled = false;
+                    }
                     break;
                 case Keys.PageDown:
                     if (e.Control) {
@@ -438,8 +444,13 @@ namespace VRCLensOSC
                     // btnDroneSwitch.Enabled = true;
                     break;
                 case Keys.Insert:
-                    osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
-                    btnDrop.Enabled = true;
+                    if (e.Shift) {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnDropPivot.Enabled = true;
+                    } else {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        btnDrop.Enabled = true;
+                    }
                     break;
                 case Keys.PageDown:
                     if (e.Control) {
@@ -792,6 +803,21 @@ namespace VRCLensOSC
         }
 
         private void btnDrop_MouseUp(object sender, MouseEventArgs e)
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+        }
+
+        #endregion
+
+        //------------------------------------------------------------------------------------
+
+        #region Control Panel - Drop
+
+        private void btnDropPivot_MouseDown(object sender, MouseEventArgs e) {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle",  (int)DroneFeatureToggle.DropPivot));
+        }
+
+        private void btnDropPivot_MouseUp(object sender, MouseEventArgs e)
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
         }
