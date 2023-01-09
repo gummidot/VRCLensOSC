@@ -92,6 +92,7 @@
             this.btnTrackPivot = new System.Windows.Forms.Button();
             this.btnAvAutoFocus = new System.Windows.Forms.Button();
             this.btnDroneTurbo = new System.Windows.Forms.Button();
+            this.btnDropPivot = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -122,7 +123,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnDropPivot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -162,7 +162,7 @@
             this.sldZoom.Size = new System.Drawing.Size(278, 45);
             this.sldZoom.TabIndex = 0;
             this.sldZoom.TabStop = false;
-            this.sldZoom.Value = 2500;
+            this.sldZoom.Value = 1200;
             this.sldZoom.Scroll += new System.EventHandler(this.sldZoom_Scroll);
             // 
             // btnZoomOut
@@ -204,7 +204,7 @@
             this.lbZoomPer.Name = "lbZoomPer";
             this.lbZoomPer.Size = new System.Drawing.Size(27, 13);
             this.lbZoomPer.TabIndex = 4;
-            this.lbZoomPer.Text = "25%";
+            this.lbZoomPer.Text = "12%";
             // 
             // panel
             // 
@@ -907,6 +907,17 @@
             this.btnDroneTurbo.UseVisualStyleBackColor = true;
             this.btnDroneTurbo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDroneTurbo_MouseDown);
             // 
+            // btnDropPivot
+            // 
+            this.btnDropPivot.Location = new System.Drawing.Point(165, 109);
+            this.btnDropPivot.Name = "btnDropPivot";
+            this.btnDropPivot.Size = new System.Drawing.Size(51, 47);
+            this.btnDropPivot.TabIndex = 11;
+            this.btnDropPivot.Text = "Drop P (Shift+Ins)";
+            this.btnDropPivot.UseVisualStyleBackColor = true;
+            this.btnDropPivot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseDown);
+            this.btnDropPivot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseUp);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
@@ -1202,17 +1213,6 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
-            // 
-            // btnDropPivot
-            // 
-            this.btnDropPivot.Location = new System.Drawing.Point(165, 109);
-            this.btnDropPivot.Name = "btnDropPivot";
-            this.btnDropPivot.Size = new System.Drawing.Size(51, 47);
-            this.btnDropPivot.TabIndex = 11;
-            this.btnDropPivot.Text = "Drop P (Shift+Ins)";
-            this.btnDropPivot.UseVisualStyleBackColor = true;
-            this.btnDropPivot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseDown);
-            this.btnDropPivot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseUp);
             // 
             // MainForm
             // 

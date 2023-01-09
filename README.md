@@ -27,6 +27,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Unmapped Drone Move Switch (Y)
 - Remapped Hand Rotate (End) to Page Down
 - Remapped Track Self (Del) to Ctrl + Page Up
+- Changed default zoom from 25% (24mm) to 12% (17mm)
 - Added button to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
 - Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl + Home.
 - Added hotkey to toggle Avatar AutoFocus (Shift + Home).
