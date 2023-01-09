@@ -123,6 +123,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
+            this.btnResetZoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -772,6 +773,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnAvAutoFocus, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnDroneTurbo, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.btnDropPivot, 3, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -1214,6 +1216,16 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
+            // btnResetZoom
+            // 
+            this.btnResetZoom.Location = new System.Drawing.Point(111, 56);
+            this.btnResetZoom.Name = "btnResetZoom";
+            this.btnResetZoom.Size = new System.Drawing.Size(48, 47);
+            this.btnResetZoom.TabIndex = 12;
+            this.btnResetZoom.Text = "ResetZoom (Shf =)";
+            this.btnResetZoom.UseVisualStyleBackColor = true;
+            this.btnResetZoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnZoomReset_MouseDown);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1373,6 +1385,7 @@
         private System.Windows.Forms.Button btnAvAutoFocus;
         private System.Windows.Forms.Button btnDroneTurbo;
         private System.Windows.Forms.Button btnDropPivot;
+        private System.Windows.Forms.Button btnResetZoom;
     }
 }
 

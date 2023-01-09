@@ -28,11 +28,12 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Remapped Hand Rotate (End) to Page Down
 - Remapped Track Self (Del) to Ctrl + Page Up
 - Changed default zoom from 25% (24mm) to 12% (17mm)
-- Added button to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
+- Added hotkey to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
 - Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl + Home.
-- Added hotkey to toggle Avatar AutoFocus (Shift + Home).
+- Added hotkey to toggle Avatar AutoFocus (Shift + Home)
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added hotkey to toggle Drop Pivot (Shift + Insert)
+- Added hotkey to reset Zoom (Shift + =)
 - Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
 - Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
 - Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)

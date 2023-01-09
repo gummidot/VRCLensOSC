@@ -23,6 +23,7 @@ namespace VRCLensOSC
         private bool DroneSwitch = false;
         private bool DroneTurbo = false;
         private const float DroneTurboStep = 1f;
+        private int DefaultSldZoom;
 
         public enum DroneFeatureToggle
         {
@@ -36,6 +37,7 @@ namespace VRCLensOSC
             InitializeComponent();
             osc = new OscSender(IPAddress.Parse("127.0.0.1"), 0, 9000);
             oscListener.DoWork += new DoWorkEventHandler(OSCRECEIVE);
+            this.DefaultSldZoom = this.sldZoom.Value;
         }
         ~MainForm()
         {
@@ -199,7 +201,14 @@ namespace VRCLensOSC
             switch(e.KeyCode)
             {
                 case Keys.OemMinus: TimerZoomOut.Enabled = true; btnZoomOut.Enabled = false; break;
-                case Keys.Oemplus: TimerZoomIn.Enabled = true; btnZoomIn.Enabled = false; break;
+                case Keys.Oemplus:
+                    if (e.Shift) {
+                        OSCZoomReset();
+                    } else {
+                        TimerZoomIn.Enabled = true;
+                        btnZoomIn.Enabled = false;
+                    }
+                    break;
                 case Keys.OemOpenBrackets: TimerEVm.Enabled = true; btnEVm.Enabled = false; break;
                 case Keys.Oem6: TimerEVp.Enabled = true; btnEVp.Enabled = false; break;
                 case Keys.Oem1: TimerApShallow.Enabled = true; btnApShallow.Enabled = false; break;
@@ -352,7 +361,7 @@ namespace VRCLensOSC
             switch (e.KeyCode)
             {
                 case Keys.OemMinus: TimerZoomOut.Enabled = false; btnZoomOut.Enabled = true; break;
-                case Keys.Oemplus: TimerZoomIn.Enabled = false; btnZoomIn.Enabled = true; break;
+                case Keys.Oemplus:TimerZoomIn.Enabled = false; btnZoomIn.Enabled = true; break;
                 case Keys.OemOpenBrackets: TimerEVm.Enabled = false; btnEVm.Enabled = true; break;
                 case Keys.Oem6: TimerEVp.Enabled = false; btnEVp.Enabled = true; break;
                 case Keys.Oem1: TimerApShallow.Enabled = false; btnApShallow.Enabled = true; break;
@@ -514,6 +523,12 @@ namespace VRCLensOSC
             osc.Send(new OscMessage("/avatar/parameters/VRCLZoomRadial", this.sldZoom.Value * Div));
         }
 
+        private void OSCZoomReset()
+        {
+            this.lbZoomPer.Text = ((int)Math.Round(this.DefaultSldZoom * DivPer)).ToString() + "%";
+            osc.Send(new OscMessage("/avatar/parameters/VRCLZoomRadial", this.DefaultSldZoom * Div));
+        }
+
         private void OSCEV()
         {
             this.lbEV.Text = ((int)Math.Round(this.sldEV.Value * DivPer)).ToString() + "%";
@@ -558,6 +573,10 @@ namespace VRCLensOSC
         private void btnZoomOut_MouseUp(object sender, MouseEventArgs e)
         {
             this.TimerZoomOut.Enabled = false;
+        }
+        private void btnZoomReset_MouseDown(object sender, MouseEventArgs e)
+        {
+            OSCZoomReset();
         }
         private void TimerZoomIn_Tick(object sender, EventArgs e)
         {
