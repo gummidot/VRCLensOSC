@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRCLensOSC", "VRCLensOSC\VRCLensOSC.csproj", "{B778C06A-970B-418B-98D9-C7888697382F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Okmer.GameController", "Com.Okmer.GameController\Com.Okmer.GameController.csproj", "{80349134-1CC7-468A-B5C4-75B5A11A6B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B778C06A-970B-418B-98D9-C7888697382F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B778C06A-970B-418B-98D9-C7888697382F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B778C06A-970B-418B-98D9-C7888697382F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80349134-1CC7-468A-B5C4-75B5A11A6B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80349134-1CC7-468A-B5C4-75B5A11A6B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80349134-1CC7-468A-B5C4-75B5A11A6B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80349134-1CC7-468A-B5C4-75B5A11A6B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
