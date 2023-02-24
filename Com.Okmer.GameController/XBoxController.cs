@@ -1,5 +1,6 @@
 ﻿using Com.Okmer.GameController.Helpers;
 using SharpDX.XInput;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Com.Okmer.GameController
@@ -8,6 +9,7 @@ namespace Com.Okmer.GameController
     {
         private Task fastPollTask;
         private Task slowPollTask;
+        private CancellationTokenSource pollTokenSource;
 
         public const float MinTrigger = 0.0f;
         public const float MaxTrigger = 1.0f;
@@ -82,25 +84,47 @@ namespace Com.Okmer.GameController
                 controller.SetVibration(vibration);
             };
 
+            pollTokenSource = new CancellationTokenSource();
+            CancellationToken ct = pollTokenSource.Token;
+
             //Fast poll loop
             fastPollTask = Task.Run(async () =>
             {
                 while (true)
                 {
+                    if (ct.IsCancellationRequested)
+                    {
+                        return;
+                    }
                     await Task.Delay(fastPollIntervalMilliseconds);
                     FastPoll();
                 }
-            });
+            }, ct);
 
             //Slow poll loop
+            SlowPoll();
             slowPollTask = Task.Run(async () =>
             {
                 while (true)
                 {
+                    if (ct.IsCancellationRequested)
+                    {
+                        return;
+                    }
                     await Task.Delay(slowPollIntervalMilliseconds);
                     SlowPoll();
                 }
             });
+        }
+
+        public void Close()
+        {
+            if (pollTokenSource != null)
+            {
+                pollTokenSource.Cancel();
+                pollTokenSource.Dispose();
+                pollTokenSource = null;
+            }
         }
 
         /// <summary>
