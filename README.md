@@ -98,11 +98,3 @@ msbuild -p:Configuration=Release
 
 # Then run VRCLensOSC\bin\Release\VRCLensOSC.exe
 ```
-
-## Distributing
-
-When distributing, these files must be included in the same directory:
-
-- `VRCLensOSC.exe`
-- `Rug.Osc.dll`
-- `Gma.System.MouseKeyHook.dll`
