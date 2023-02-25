@@ -60,9 +60,29 @@ namespace Com.Okmer.GameController
         public XBoxRumble LeftRumble { get; } = new XBoxRumble();
         public XBoxRumble RightRumble { get; } = new XBoxRumble();
 
-        public XBoxController(int fastPollIntervalMilliseconds = 10, int slowPollIntervalMilliseconds = 1000)
+        public XBoxController(int userIndex = 1, int fastPollIntervalMilliseconds = 10, int slowPollIntervalMilliseconds = 1000)
         {
-            controller = new Controller(UserIndex.One);
+            UserIndex controllerIndex;
+            switch (userIndex)
+            {
+                case 1:
+                    controllerIndex = UserIndex.One;
+                    break;
+                case 2:
+                    controllerIndex = UserIndex.Two;
+                    break;
+                case 3:
+                    controllerIndex = UserIndex.Three;
+                    break;
+                case 4:
+                    controllerIndex = UserIndex.Four;
+                    break;
+                default:
+                    // XInput only supports 4 controllers max
+                    controllerIndex = UserIndex.Any;
+                    break;
+            }
+            controller = new Controller(controllerIndex);
 
             //Forward changed left rumble speed to the controller 
             LeftRumble.ValueChanged += (s, e) =>
