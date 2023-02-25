@@ -93,6 +93,7 @@
             this.btnAvAutoFocus = new System.Windows.Forms.Button();
             this.btnDroneTurbo = new System.Windows.Forms.Button();
             this.btnDropPivot = new System.Windows.Forms.Button();
+            this.btnResetZoom = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -108,6 +109,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnDroneRotHold = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.controllerIndexList = new System.Windows.Forms.ComboBox();
             this.btnShortkey = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -123,7 +125,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnResetZoom = new System.Windows.Forms.Button();
+            this.controllerIdentifyBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -920,6 +922,16 @@
             this.btnDropPivot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseDown);
             this.btnDropPivot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDropPivot_MouseUp);
             // 
+            // btnResetZoom
+            // 
+            this.btnResetZoom.Location = new System.Drawing.Point(111, 56);
+            this.btnResetZoom.Name = "btnResetZoom";
+            this.btnResetZoom.Size = new System.Drawing.Size(48, 47);
+            this.btnResetZoom.TabIndex = 12;
+            this.btnResetZoom.Text = "ResetZoom (Shf =)";
+            this.btnResetZoom.UseVisualStyleBackColor = true;
+            this.btnResetZoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnZoomReset_MouseDown);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
@@ -1096,6 +1108,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.controllerIdentifyBtn);
+            this.groupBox3.Controls.Add(this.controllerIndexList);
             this.groupBox3.Controls.Add(this.btnShortkey);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.btnConnect);
@@ -1106,6 +1120,22 @@
             this.groupBox3.Size = new System.Drawing.Size(632, 49);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
+            // 
+            // controllerIndexList
+            // 
+            this.controllerIndexList.FormattingEnabled = true;
+            this.controllerIndexList.Items.AddRange(new object[] {
+            "Controller 1",
+            "Controller 2",
+            "Controller 3",
+            "Controller 4",
+            "Disabled"});
+            this.controllerIndexList.Location = new System.Drawing.Point(354, 17);
+            this.controllerIndexList.Name = "controllerIndexList";
+            this.controllerIndexList.Size = new System.Drawing.Size(79, 21);
+            this.controllerIndexList.TabIndex = 5;
+            this.controllerIndexList.Text = "Controller 1";
+            this.controllerIndexList.SelectedIndexChanged += new System.EventHandler(this.controllerIndexList_SelectedIndexChanged);
             // 
             // btnShortkey
             // 
@@ -1216,15 +1246,15 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
-            // btnResetZoom
+            // controllerIdentifyBtn
             // 
-            this.btnResetZoom.Location = new System.Drawing.Point(111, 56);
-            this.btnResetZoom.Name = "btnResetZoom";
-            this.btnResetZoom.Size = new System.Drawing.Size(48, 47);
-            this.btnResetZoom.TabIndex = 12;
-            this.btnResetZoom.Text = "ResetZoom (Shf =)";
-            this.btnResetZoom.UseVisualStyleBackColor = true;
-            this.btnResetZoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnZoomReset_MouseDown);
+            this.controllerIdentifyBtn.Location = new System.Drawing.Point(439, 16);
+            this.controllerIdentifyBtn.Name = "controllerIdentifyBtn";
+            this.controllerIdentifyBtn.Size = new System.Drawing.Size(55, 23);
+            this.controllerIdentifyBtn.TabIndex = 6;
+            this.controllerIdentifyBtn.Text = "Identify";
+            this.controllerIdentifyBtn.UseVisualStyleBackColor = true;
+            this.controllerIdentifyBtn.Click += new System.EventHandler(this.controllerIdentifyBtn_Click);
             // 
             // MainForm
             // 
@@ -1386,6 +1416,8 @@
         private System.Windows.Forms.Button btnDroneTurbo;
         private System.Windows.Forms.Button btnDropPivot;
         private System.Windows.Forms.Button btnResetZoom;
+        private System.Windows.Forms.ComboBox controllerIndexList;
+        private System.Windows.Forms.Button controllerIdentifyBtn;
     }
 }
 

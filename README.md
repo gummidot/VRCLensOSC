@@ -37,6 +37,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
 - Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
 - Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)
+- Added support for XBox controller input when Enable Shortkey is used. Left thumbstick controls horizontal drone movement.
 
 ### 3-dimensional movement setup
 
