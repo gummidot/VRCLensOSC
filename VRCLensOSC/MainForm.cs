@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
@@ -44,6 +44,7 @@ namespace VRCLensOSC
             osc = new OscSender(IPAddress.Parse("127.0.0.1"), 0, 9000);
             oscListener.DoWork += new DoWorkEventHandler(OSCRECEIVE);
             this.DefaultSldZoom = this.sldZoom.Value;
+            RefreshControllerList();
         }
         ~MainForm()
         {
@@ -189,6 +190,21 @@ namespace VRCLensOSC
         }
 
         //------------------------------------------------------------------------------------
+
+        private void RefreshControllerList()
+        {
+            this.controllerIndexList.Items.Clear();
+            for (int i = 1; i <= 4; i++)
+            {
+                XBoxController controller = new XBoxController(userIndex: i);
+                if (controller.Connection.Value)
+                {
+                    this.controllerIndexList.Items.Add($"Controller {i}");
+                }
+                controller.Close();
+            }
+            this.controllerIndexList.Items.Add("Disabled");
+        }
 
         private void AssignHotKey()
         {
@@ -1090,6 +1106,7 @@ namespace VRCLensOSC
                 AssignHotKey();
                 btnShortkey.Text = "Disable Shortkey";
                 controllerIndexList.Enabled = false;
+                controllerRefreshIdentifyBtn.Text = "Identify";
             }
             else
             {
@@ -1104,6 +1121,7 @@ namespace VRCLensOSC
 
                 btnShortkey.Text = "Enable Shortkey";
                 controllerIndexList.Enabled = true;
+                controllerRefreshIdentifyBtn.Text = "Refresh";
             }
         }
         private void btnDroneSwitch_Click(object sender, EventArgs e)
@@ -1117,16 +1135,21 @@ namespace VRCLensOSC
             if (controller == "Disabled")
             {
                 controllerIndex = -1;
-            } else
+            }
+            else
             {
                 // Controller 1, ..., Controller 4
                 controllerIndex = Int32.Parse(controller.Split(' ')[1]);
             }
         }
 
-        private void controllerIdentifyBtn_Click(object sender, EventArgs e)
+        private void controllerRefreshIdentifyBtn_Click(object sender, EventArgs e)
         {
-            if (controller != null)
+            if (controllerRefreshIdentifyBtn.Text == "Refresh")
+            {
+                RefreshControllerList();
+            }
+            else if (controller != null)
             {
                 controller.LeftRumble.Rumble(0.25f, 500);
             }

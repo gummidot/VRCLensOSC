@@ -109,6 +109,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnDroneRotHold = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.controllerRefreshIdentifyBtn = new System.Windows.Forms.Button();
             this.controllerIndexList = new System.Windows.Forms.ComboBox();
             this.btnShortkey = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,7 +126,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.controllerIdentifyBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -1108,7 +1108,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.controllerIdentifyBtn);
+            this.groupBox3.Controls.Add(this.controllerRefreshIdentifyBtn);
             this.groupBox3.Controls.Add(this.controllerIndexList);
             this.groupBox3.Controls.Add(this.btnShortkey);
             this.groupBox3.Controls.Add(this.label2);
@@ -1121,15 +1121,19 @@
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             // 
+            // controllerRefreshIdentifyBtn
+            // 
+            this.controllerRefreshIdentifyBtn.Location = new System.Drawing.Point(439, 16);
+            this.controllerRefreshIdentifyBtn.Name = "controllerRefreshIdentifyBtn";
+            this.controllerRefreshIdentifyBtn.Size = new System.Drawing.Size(55, 23);
+            this.controllerRefreshIdentifyBtn.TabIndex = 6;
+            this.controllerRefreshIdentifyBtn.Text = "Refresh";
+            this.controllerRefreshIdentifyBtn.UseVisualStyleBackColor = true;
+            this.controllerRefreshIdentifyBtn.Click += new System.EventHandler(this.controllerRefreshIdentifyBtn_Click);
+            // 
             // controllerIndexList
             // 
             this.controllerIndexList.FormattingEnabled = true;
-            this.controllerIndexList.Items.AddRange(new object[] {
-            "Controller 1",
-            "Controller 2",
-            "Controller 3",
-            "Controller 4",
-            "Disabled"});
             this.controllerIndexList.Location = new System.Drawing.Point(354, 17);
             this.controllerIndexList.Name = "controllerIndexList";
             this.controllerIndexList.Size = new System.Drawing.Size(79, 21);
@@ -1245,16 +1249,6 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
-            // 
-            // controllerIdentifyBtn
-            // 
-            this.controllerIdentifyBtn.Location = new System.Drawing.Point(439, 16);
-            this.controllerIdentifyBtn.Name = "controllerIdentifyBtn";
-            this.controllerIdentifyBtn.Size = new System.Drawing.Size(55, 23);
-            this.controllerIdentifyBtn.TabIndex = 6;
-            this.controllerIdentifyBtn.Text = "Identify";
-            this.controllerIdentifyBtn.UseVisualStyleBackColor = true;
-            this.controllerIdentifyBtn.Click += new System.EventHandler(this.controllerIdentifyBtn_Click);
             // 
             // MainForm
             // 
@@ -1417,7 +1411,7 @@
         private System.Windows.Forms.Button btnDropPivot;
         private System.Windows.Forms.Button btnResetZoom;
         private System.Windows.Forms.ComboBox controllerIndexList;
-        private System.Windows.Forms.Button controllerIdentifyBtn;
+        private System.Windows.Forms.Button controllerRefreshIdentifyBtn;
     }
 }
 
