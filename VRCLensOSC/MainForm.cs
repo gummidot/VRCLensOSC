@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
@@ -219,8 +219,8 @@ namespace VRCLensOSC
             float stepV = e.Value.Y;
 
             // Limit steps to min and max
-            stepH = Math.Max(Math.Min(Math.Abs(e.Value.X), stepHMax), stepHMin) * Math.Sign(e.Value.X);
-            stepV = Math.Max(Math.Min(Math.Abs(e.Value.Y), stepVMax), stepVMin) * Math.Sign(e.Value.Y);
+            stepH = roundStep(e.Value.X, stepHMin, stepHMax, 0);
+            stepV = roundStep(e.Value.Y, stepVMin, stepVMax, 0);
 
             // Include controller input in DroneKey so other inputs don't reset VRCLFeatureToggle
             // while the controller is still being used. The key code doesn't matter as long as it's unique.
@@ -247,6 +247,20 @@ namespace VRCLensOSC
             }
             osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendH", stepH));
             osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", stepV));
+        }
+
+        // Round a step value to a nearest increment, limited by a min and max
+        private float roundStep(float step, float min, float max, float increment)
+        {
+
+            float sign = Math.Sign(step);
+            step = Math.Abs(step);
+            if (increment > 0)
+            {
+                step = (float)Math.Round(step / increment) * increment;
+            }
+            step = Math.Max(Math.Min(step, max), min) * sign;
+            return step;
         }
 
         void GlobalKeyDown(object sender, KeyEventArgs e)
