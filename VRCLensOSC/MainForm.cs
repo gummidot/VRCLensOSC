@@ -221,7 +221,9 @@ namespace VRCLensOSC
             // Limit steps to min and max
             stepH = roundStep(e.Value.X, stepHMin, stepHMax, 0);
             stepV = roundStep(e.Value.Y, stepVMin, stepVMax, 0);
-
+#if DEBUG
+            Console.WriteLine($"Left thumbstick changed: x: {e.Value.X} ({stepH}), y: {e.Value.Y} ({stepV})");
+#endif
             // Include controller input in DroneKey so other inputs don't reset VRCLFeatureToggle
             // while the controller is still being used. The key code doesn't matter as long as it's unique.
             int controllerDroneKey = 1336;
