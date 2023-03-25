@@ -218,7 +218,7 @@ namespace VRCLensOSC
                 // Use slower poll rate than default 10 ms
                 controller = new XBoxController(userIndex: controllerIndex, fastPollIntervalMilliseconds: 25);
                 // Reasonable dead zone to prevent drifting
-                controller.LeftThumbstick.DeadZone = 0.001f;
+                controller.LeftThumbstick.DeadZone = 0.005f;
                 controller.LeftThumbstick.ValueChanged += XBoxLeftThumbstickChanged;
             }
         }
@@ -228,9 +228,8 @@ namespace VRCLensOSC
         {
             float stepHMax = DroneTurbo ? DroneTurboStep : (float)stepMoveH.Value;
             float stepVMax = DroneTurbo ? DroneTurboStep : (float)stepMoveV.Value;
-            // Arbitrary minimum of 0.1
-            float stepHMin = 0.1f;
-            float stepVMin = 0.1f;
+            float stepHMin = (float)stepMinMoveHV.Value;
+            float stepVMin = (float)stepMinMoveHV.Value;
             float stepH = e.Value.X;
             float stepV = e.Value.Y;
 
