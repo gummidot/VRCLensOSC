@@ -517,7 +517,7 @@
             this.btnFocusFur.Name = "btnFocusFur";
             this.btnFocusFur.Size = new System.Drawing.Size(72, 53);
             this.btnFocusFur.TabIndex = 3;
-            this.btnFocusFur.Text = "Further\n( 0 )";
+            this.btnFocusFur.Text = "Further\r\n( Ctrl + 0 )";
             this.btnFocusFur.UseVisualStyleBackColor = true;
             this.btnFocusFur.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusFur_MouseDown);
             this.btnFocusFur.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnFocusFur_MouseUp);
@@ -538,7 +538,7 @@
             this.btnFocusClo.Name = "btnFocusClo";
             this.btnFocusClo.Size = new System.Drawing.Size(71, 53);
             this.btnFocusClo.TabIndex = 1;
-            this.btnFocusClo.Text = "Closer\n( 9 )";
+            this.btnFocusClo.Text = "Closer\r\n( Ctrl + 9 )";
             this.btnFocusClo.UseVisualStyleBackColor = true;
             this.btnFocusClo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusClo_MouseDown);
             this.btnFocusClo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnFocusClo_MouseUp);
