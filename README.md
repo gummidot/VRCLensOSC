@@ -30,7 +30,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Changed default zoom from 25% (24mm) to 12% (17mm)
 - Changed default Drone Move step from 0.50 to 1.00
 - Added hotkey to toggle Track Pivot (Page Up). Unmapped Page Up from Portrait.
-- Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl + Home.
+- Added hotkey to toggle DoF (Home). Remapped Enable Drone to Ctrl + Home (press and hold to disable).
 - Added hotkey to toggle Avatar AutoFocus (Shift + Home)
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added hotkey to toggle Drop Pivot (Shift + Insert)
@@ -39,6 +39,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
 - Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)
 - Added support for XBox controller input when Enable Shortkey is used. Left thumbstick controls horizontal drone movement. Max speed is limited to Drone Move steps, while min speed is limited to Min Move step.
+- Added hotkey to toggle Enable Shortkey (Ctrl + ~)
 
 ### 3-dimensional movement setup
 

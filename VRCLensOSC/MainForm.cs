@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
@@ -45,9 +45,13 @@ namespace VRCLensOSC
             oscListener.DoWork += new DoWorkEventHandler(OSCRECEIVE);
             this.DefaultSldZoom = this.sldZoom.Value;
             RefreshControllerList();
+
+            gh = Hook.GlobalEvents();
+            gh.KeyDown += GlobalKeyDownShortkey;
         }
         ~MainForm()
         {
+            gh.KeyDown -= GlobalKeyDownShortkey;
             gh.KeyDown -= GlobalKeyDown;
             gh.KeyUp -= GlobalKeyUp;
             gh.Dispose();
@@ -208,8 +212,6 @@ namespace VRCLensOSC
 
         private void AssignHotKey()
         {
-            gh = Hook.GlobalEvents();
-
             gh.KeyDown += GlobalKeyDown;
             gh.KeyUp += GlobalKeyUp;
 
@@ -280,13 +282,27 @@ namespace VRCLensOSC
             return step;
         }
 
+        void GlobalKeyDownShortkey(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Oemtilde:
+                    if (e.Control)
+                    {
+                        this.toggleShortkey();
+                    }
+                    break;
+            }
+        }
+
         void GlobalKeyDown(object sender, KeyEventArgs e)
         {
             float stepV = DroneTurbo ? DroneTurboStep : (float)stepMoveV.Value;
             float stepH = DroneTurbo ? DroneTurboStep : (float)stepMoveH.Value;
             float stepUpVUpDown = DroneTurbo ? DroneTurboStep : (float)stepMoveVUpDown.Value;
 
-            switch(e.KeyCode)
+            // Key codes: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys
+            switch (e.KeyCode)
             {
                 case Keys.OemMinus: TimerZoomOut.Enabled = true; btnZoomOut.Enabled = false; break;
                 case Keys.Oemplus:
@@ -1100,10 +1116,15 @@ namespace VRCLensOSC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(btnShortkey.Text == "Enable Shortkey")
+            this.toggleShortkey();
+        }
+
+        private void toggleShortkey()
+        {
+            if (btnShortkey.Text.Contains("Enable"))
             {
                 AssignHotKey();
-                btnShortkey.Text = "Disable Shortkey";
+                btnShortkey.Text = btnShortkey.Text.Replace("Enable", "Disable");
                 controllerIndexList.Enabled = false;
                 controllerRefreshIdentifyBtn.Text = "Identify";
             }
@@ -1111,18 +1132,18 @@ namespace VRCLensOSC
             {
                 gh.KeyDown -= GlobalKeyDown;
                 gh.KeyUp -= GlobalKeyUp;
-                gh.Dispose();
 
                 if (controller != null)
                 {
                     controller.Close();
                 }
 
-                btnShortkey.Text = "Enable Shortkey";
+                btnShortkey.Text = btnShortkey.Text.Replace("Disable", "Enable");
                 controllerIndexList.Enabled = true;
                 controllerRefreshIdentifyBtn.Text = "Refresh";
             }
         }
+
         private void btnDroneSwitch_Click(object sender, EventArgs e)
         {
             SwitchDrone();

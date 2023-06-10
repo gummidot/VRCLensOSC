@@ -76,10 +76,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.stepMoveV = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnDroneSwitch = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.stepMoveVUpDown = new System.Windows.Forms.NumericUpDown();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.stepMinMoveHV = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnDroneSwitch = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPortrait = new System.Windows.Forms.Button();
             this.btnOIS = new System.Windows.Forms.Button();
@@ -126,9 +129,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.stepMinMoveHV = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -148,6 +148,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveV)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMinMoveHV)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -158,8 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepRotH)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stepMinMoveHV)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
@@ -709,16 +709,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Fo/Back";
             // 
-            // btnDroneSwitch
-            // 
-            this.btnDroneSwitch.Location = new System.Drawing.Point(133, 129);
-            this.btnDroneSwitch.Name = "btnDroneSwitch";
-            this.btnDroneSwitch.Size = new System.Drawing.Size(60, 58);
-            this.btnDroneSwitch.TabIndex = 13;
-            this.btnDroneSwitch.Text = "Drone Switch (unused)";
-            this.btnDroneSwitch.UseVisualStyleBackColor = true;
-            this.btnDroneSwitch.Click += new System.EventHandler(this.btnDroneSwitch_Click);
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.label3);
@@ -759,6 +749,52 @@
             0,
             0,
             131072});
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.stepMinMoveHV);
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Location = new System.Drawing.Point(133, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(60, 57);
+            this.panel9.TabIndex = 15;
+            // 
+            // stepMinMoveHV
+            // 
+            this.stepMinMoveHV.DecimalPlaces = 2;
+            this.stepMinMoveHV.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.stepMinMoveHV.Location = new System.Drawing.Point(3, 26);
+            this.stepMinMoveHV.Name = "stepMinMoveHV";
+            this.stepMinMoveHV.Size = new System.Drawing.Size(54, 20);
+            this.stepMinMoveHV.TabIndex = 1;
+            this.stepMinMoveHV.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(0, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(54, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Min Move";
+            // 
+            // btnDroneSwitch
+            // 
+            this.btnDroneSwitch.Location = new System.Drawing.Point(133, 129);
+            this.btnDroneSwitch.Name = "btnDroneSwitch";
+            this.btnDroneSwitch.Size = new System.Drawing.Size(60, 58);
+            this.btnDroneSwitch.TabIndex = 13;
+            this.btnDroneSwitch.Text = "Drone Switch (unused)";
+            this.btnDroneSwitch.UseVisualStyleBackColor = true;
+            this.btnDroneSwitch.Click += new System.EventHandler(this.btnDroneSwitch_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -1149,11 +1185,11 @@
             // 
             // btnShortkey
             // 
-            this.btnShortkey.Location = new System.Drawing.Point(249, 14);
+            this.btnShortkey.Location = new System.Drawing.Point(206, 14);
             this.btnShortkey.Name = "btnShortkey";
-            this.btnShortkey.Size = new System.Drawing.Size(99, 25);
+            this.btnShortkey.Size = new System.Drawing.Size(142, 25);
             this.btnShortkey.TabIndex = 4;
-            this.btnShortkey.Text = "Enable Shortkey";
+            this.btnShortkey.Text = "Enable Shortkey (Ctrl + ~)";
             this.btnShortkey.UseVisualStyleBackColor = true;
             this.btnShortkey.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -1169,7 +1205,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(171, 14);
+            this.btnConnect.Location = new System.Drawing.Point(131, 14);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(73, 25);
             this.btnConnect.TabIndex = 2;
@@ -1179,7 +1215,7 @@
             // 
             // Port
             // 
-            this.Port.Location = new System.Drawing.Point(101, 16);
+            this.Port.Location = new System.Drawing.Point(73, 17);
             this.Port.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1191,7 +1227,7 @@
             0,
             0});
             this.Port.Name = "Port";
-            this.Port.Size = new System.Drawing.Size(64, 20);
+            this.Port.Size = new System.Drawing.Size(51, 20);
             this.Port.TabIndex = 1;
             this.Port.Value = new decimal(new int[] {
             9000,
@@ -1203,7 +1239,7 @@
             // 
             this.IPAddr.Location = new System.Drawing.Point(6, 16);
             this.IPAddr.Name = "IPAddr";
-            this.IPAddr.Size = new System.Drawing.Size(86, 20);
+            this.IPAddr.Size = new System.Drawing.Size(60, 20);
             this.IPAddr.TabIndex = 0;
             this.IPAddr.Text = "127.0.0.1";
             // 
@@ -1256,42 +1292,6 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.stepMinMoveHV);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Location = new System.Drawing.Point(133, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(60, 57);
-            this.panel9.TabIndex = 15;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(0, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Min Move";
-            // 
-            // stepMinMoveHV
-            // 
-            this.stepMinMoveHV.DecimalPlaces = 2;
-            this.stepMinMoveHV.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.stepMinMoveHV.Location = new System.Drawing.Point(3, 26);
-            this.stepMinMoveHV.Name = "stepMinMoveHV";
-            this.stepMinMoveHV.Size = new System.Drawing.Size(54, 20);
-            this.stepMinMoveHV.TabIndex = 1;
-            this.stepMinMoveHV.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1338,6 +1338,9 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepMoveVUpDown)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepMinMoveHV)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1351,9 +1354,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stepMinMoveHV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
