@@ -40,6 +40,7 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)
 - Added support for XBox controller input when Enable Shortkey is used. Left thumbstick controls horizontal drone movement. Max speed is limited to Drone Move steps, while min speed is limited to Min Move step.
 - Added hotkey to toggle Enable Shortkey (Ctrl + ~)
+- Added hotkey to toggle Focus Peaking (Del)
 
 ### 3-dimensional movement setup
 

@@ -32,6 +32,8 @@ namespace VRCLensOSC
 
         public enum DroneFeatureToggle
         {
+            Reset = 0,
+            FocusPeakingZebra = 1,
             AvatarAutoFocus = 13,
             Move = 212,
             PivotMove = 214,
@@ -289,7 +291,7 @@ namespace VRCLensOSC
                 case Keys.Oemtilde:
                     if (e.Control)
                     {
-                        this.toggleShortkey();
+                        this.ToggleShortkey();
                     }
                     break;
             }
@@ -457,6 +459,10 @@ namespace VRCLensOSC
                         btnTrackPivot.Enabled = false;
                     }
                     break;
+                case Keys.Delete:
+                    this.ToggleFocusPeaking();
+                    btnFocusPeaking.Enabled = false;
+                    break;
             }
         }
 
@@ -599,7 +605,15 @@ namespace VRCLensOSC
                         btnTrackPivot.Enabled = true;
                     }
                     break;
+                case Keys.Delete:
+                    this.DroneFeatureToggleReset();
+                    btnFocusPeaking.Enabled = true;
+                    break;
             }
+        }
+        private void DroneFeatureToggleReset()
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.Reset));
         }
 
         private void UseDrone(int t, bool b)
@@ -675,6 +689,10 @@ namespace VRCLensOSC
             osc.Send(new OscMessage("/avatar/parameters/VRCLFocusRadial", this.sldFocus.Value * Div));
         }
 
+        private void ToggleFocusPeaking()
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.FocusPeakingZebra));
+        }
 
         //------------------------------------------------------------------------------------
 
@@ -1114,12 +1132,12 @@ namespace VRCLensOSC
 
         //------------------------------------------------------------------------------------
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShortkey_Click(object sender, EventArgs e)
         {
-            this.toggleShortkey();
+            this.ToggleShortkey();
         }
 
-        private void toggleShortkey()
+        private void ToggleShortkey()
         {
             if (btnShortkey.Text.Contains("Enable"))
             {
@@ -1173,6 +1191,17 @@ namespace VRCLensOSC
             {
                 controller.LeftRumble.Rumble(0.25f, 500);
             }
+        }
+
+        private void btnFocusPeaking_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.ToggleFocusPeaking();
+        }
+
+        // Generic handler for toggle buttons that require a feature toggle reset
+        private void btnDroneFeatureToggleReset_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.DroneFeatureToggleReset();
         }
     }
 }

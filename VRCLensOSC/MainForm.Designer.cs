@@ -129,6 +129,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
+            this.btnFocusPeaking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -817,6 +818,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnDroneTurbo, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.btnDropPivot, 3, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnFocusPeaking, 3, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -1191,7 +1193,7 @@
             this.btnShortkey.TabIndex = 4;
             this.btnShortkey.Text = "Enable Shortkey (Ctrl + ~)";
             this.btnShortkey.UseVisualStyleBackColor = true;
-            this.btnShortkey.Click += new System.EventHandler(this.button1_Click);
+            this.btnShortkey.Click += new System.EventHandler(this.btnShortkey_Click);
             // 
             // label2
             // 
@@ -1291,6 +1293,17 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
+            // 
+            // btnFocusPeaking
+            // 
+            this.btnFocusPeaking.Location = new System.Drawing.Point(165, 56);
+            this.btnFocusPeaking.Name = "btnFocusPeaking";
+            this.btnFocusPeaking.Size = new System.Drawing.Size(51, 47);
+            this.btnFocusPeaking.TabIndex = 13;
+            this.btnFocusPeaking.Text = "Focus Peak\r\n(Del)";
+            this.btnFocusPeaking.UseVisualStyleBackColor = true;
+            this.btnFocusPeaking.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusPeaking_MouseDown);
+            this.btnFocusPeaking.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
             // 
             // MainForm
             // 
@@ -1460,6 +1473,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.NumericUpDown stepMinMoveHV;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnFocusPeaking;
     }
 }
 
