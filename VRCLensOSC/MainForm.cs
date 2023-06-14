@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
@@ -306,12 +306,9 @@ namespace VRCLensOSC
             {
                 case Keys.OemMinus: TimerZoomOut.Enabled = true; btnZoomOut.Enabled = false; break;
                 case Keys.Oemplus:
-                    if (e.Shift)
-                    {
+                    if (e.Shift) {
                         OSCZoomReset();
-                    }
-                    else
-                    {
+                    } else {
                         TimerZoomIn.Enabled = true;
                         btnZoomIn.Enabled = false;
                     }
@@ -320,20 +317,8 @@ namespace VRCLensOSC
                 case Keys.Oem6: TimerEVp.Enabled = true; btnEVp.Enabled = false; break;
                 case Keys.Oem1: TimerApShallow.Enabled = true; btnApShallow.Enabled = false; break;
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
-                case Keys.D9:
-                    if (e.Control)
-                    {
-                        TimerFocusClo.Enabled = true;
-                        btnFocusClo.Enabled = false;
-                    }
-                    break;
-                case Keys.D0:
-                    if (e.Control)
-                    {
-                        TimerFocusFur.Enabled = true;
-                        btnFocusFur.Enabled = false;
-                    }
-                    break;
+                case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
+                case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
                 case Keys.I:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", stepV));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
@@ -485,20 +470,8 @@ namespace VRCLensOSC
                 case Keys.Oem6: TimerEVp.Enabled = false; btnEVp.Enabled = true; break;
                 case Keys.Oem1: TimerApShallow.Enabled = false; btnApShallow.Enabled = true; break;
                 case Keys.Oem7: TimerApGrea.Enabled = false; btnApGreat.Enabled = true; break;
-                case Keys.D9:
-                    if (e.Control)
-                    {
-                        TimerFocusClo.Enabled = false;
-                        btnFocusClo.Enabled = true;
-                    }
-                    break;
-                case Keys.D0:
-                    if (e.Control)
-                    {
-                        TimerFocusFur.Enabled = false;
-                        btnFocusFur.Enabled = true;
-                    }
-                    break;
+                case Keys.D9: TimerFocusClo.Enabled = false; btnFocusClo.Enabled = true; break;
+                case Keys.D0: TimerFocusFur.Enabled = false; btnFocusFur.Enabled = true; break;
                 case Keys.I:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
