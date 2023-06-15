@@ -10,7 +10,7 @@ Or build from source: https://github.com/liArizenil/VRCLensOSC
 
 ## Setup
 
-Optional: to use the Switch (Y) toggle to toggle between forward/back and up/down movement, add a `VRCLDroneSwitch` parameter to your avatar: https://www.youtube.com/watch?v=j7kir6nPkyg
+Optional: to use the Switch (Y) toggle to toggle between forward/back and up/down movement, add a `VRCLDroneSwitch` parameter to your avatar in Unity: https://www.youtube.com/watch?v=j7kir6nPkyg
 
 1. Add a `VRCLDroneSwitch` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
 2. Add a `VRCLDroneSwitch` Int parameter to FX Layer parameters (default `0`)
@@ -35,14 +35,15 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
 - Added hotkey to toggle Stabilize/OIS (Ctrl + Page Down)
 - Added hotkey to toggle Drop Pivot (Shift + Insert)
 - Added hotkey to reset Zoom (Shift + =)
-- Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires a new `VRCLDroneV` parameter and animator modifications.
+- Added Drove Move Up (O) and Down (U) hotkeys to enable 3-dimensional movement. Requires VRCLens/avatar modifications in Unity. See [optional 3-dimensional movement setup](#optional-3-dimensional-movement-setup).
 - Added Shift + IJKL (forward, left, back, right) and Shift + OU (up, down) hotkeys to move drone pivot using keyboard
 - Added hotkey to toggle Drone max speed or "Turbo" mode (R Alt)
 - Added support for XBox controller input when Enable Shortkey is used. Left thumbstick controls horizontal drone movement. Max speed is limited to Drone Move steps, while min speed is limited to Min Move step.
 - Added hotkey to toggle Enable Shortkey (Ctrl + ~)
 - Added hotkey to toggle Focus Peaking (Del)
+- Added support for drone movement without interruption from other toggles. Requires VRCLens/avatar modifications in Unity. See [optional drone movement without interruption setup](#optional-drone-movement-without-interruption-setup).
 
-### 3-dimensional movement setup
+### Optional 3-dimensional movement setup
 
 To enable vertical drone movement with the Drove Move Up (O) and Down (U) keys in horizontal movement mode:
 
@@ -65,6 +66,18 @@ To enable vertical pivot movement with the Drove Move Up (O) and Down (U) keys:
 2. Optionally adjust speed of pivot movement animations since they're very fast by default, e.g., lower from `0.2` to `0.05`.
 
 ![DroneV blend tree](docs/3d_mod_DroneV_pivot.jpg)
+
+### Optional drone movement without interruption setup
+
+To allow drone movement without interruption from other toggles, create a new parameter to use for the movement toggle so it doesn't overlap with other toggles.
+
+1. Add a `VRCLDroneMove` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
+2. Add a `VRCLDroneMove` Float parameter to FX Layer parameters (default `0`)
+3. Open FX Layer in Animator. In the `vCNP_Drone 212-214 i234` layer:
+    1. Change all transitions that use `VRCLFeatureToggle Equals 212` to `VRCLDroneMove Equals 212`: `Idle -> InitDrop`, `InitDropReset -> MoveH`.
+    2. Change all transitions that use `VRCLFeatureToggle NotEquals 212` to `VRCLDroneMove NotEquals 212`: `MoveH -> DroneStop`, `MoveV -> DroneStop`.
+    3. Change the `DroneStop [i3]` state's parameter driver to set `VRCLInterrupt` to `0` instead of `3`.
+4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
 
 ### Upgrading VRCLens
 

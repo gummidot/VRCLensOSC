@@ -621,7 +621,13 @@ namespace VRCLensOSC
             //t = 212, 213
             b = !b;
 
-            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (b) ? 0:t));
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (b) ? 0 : t));
+
+            // Set optional custom parameter to move drone without interruption from other toggles
+            if (t == (int)DroneFeatureToggle.Move)
+            {
+                osc.Send(new OscMessage("/avatar/parameters/VRCLDroneMove", (b) ? 0 : t));
+            }
 
             btnDroneForward.Enabled = b;
             btnDroneBackward.Enabled = b;
@@ -642,6 +648,11 @@ namespace VRCLensOSC
             b = !b;
 
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (b) ? 0 : t));
+
+            // Set optional custom parameter to move drone without interruption from other toggles
+            {
+                osc.Send(new OscMessage("/avatar/parameters/VRCLDroneMove", (b) ? 0 : t));
+            }
 
             if (ui)
             {
