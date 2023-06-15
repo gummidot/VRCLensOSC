@@ -2,15 +2,26 @@
 
 ## Installation
 
-Download version 1.1.0b: https://cafe.naver.com/steamindiegame/7077159
+Download VRCLensOSC: https://cafe.naver.com/steamindiegame/7077159
 
-And buy from Booth to support the creator: https://booth.pm/en/items/4049205?BOOTH-APP-CLIENT-VERSION=BOOTH-APP-CLIENT-VERSIONsavik%27%3C%2F
+And buy from Booth to support the creator: https://booth.pm/en/items/4049205
 
-Or build from source: https://github.com/liArizenil/VRCLensOSC
+Or build VRCLensOSC yourself from source: https://github.com/liArizenil/VRCLensOSC
 
-## Setup
+## Usage
 
-Optional: to use the Switch (Y) toggle to toggle between forward/back and up/down movement, add a `VRCLDroneSwitch` parameter to your avatar in Unity: https://www.youtube.com/watch?v=j7kir6nPkyg
+1. Enable OSC in VRChat (Action Menu: Options > OSC > Enabled)
+2. Run VRCLensOSC.exe
+3. Click "Connect" in VRCLensOSC. VRChat doesn't have to be running for this to work.
+4. Click "Enable Shortkey" to enable keyboard shortcuts. Click "Disable Shortkey" to disable keyboard shortcuts when you're not using it anymore.
+
+## Optional Setup in Unity
+
+No additional setup is required to use VRCLensOSC.
+
+However, if you want to use the Zoom/Exposure/Aperture/Focus controls, you must have `Use manual focus`, `Use zoom dial`, `Use exposure dial`, and/or `Use aperture dial` enabled in your VRCLens setup.
+
+If you want to use the optional drone movement Switch (Y) to toggle between forward/back and up/down movement, you have to modify your avatar/VRCLens in Unity. The instructions are summarized below from the tutorial video: https://www.youtube.com/watch?v=j7kir6nPkyg
 
 1. Add a `VRCLDroneSwitch` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
 2. Add a `VRCLDroneSwitch` Int parameter to FX Layer parameters (default `0`)
@@ -21,7 +32,33 @@ Optional: to use the Switch (Y) toggle to toggle between forward/back and up/dow
     4. Select the existing transition from `RotateV` to `RotateH`. Add a condition, `VRCLDroneSwitch NotEqual 6`.
 4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
 
+## Compatibility and Risks
+
+VRCLensOSC relies on internal details of VRCLens to work and may break in future VRCLens versions.
+
+Additionally, when upgrading VRCLens, any FX layer modifications will be reset when you re-apply VRCLens, so you'll have to repeat the FX layer setup each time.
+
+Upgrade VRCLens at your own risk! Last tested with VRCLens v1.8.1.
+
+## Tips
+
+### VRCLensOSC features
+
+- Adjust drone speed using "Fo/Back", "Left/Right" number inputs. Ranges from `0` (slowest) to `1.0` (fastest), and default is `0.50`. E.g., to make drone move slower, change these to `0.1`. Alternatively, adjust drone speed in game using the radial menu, which can be more convenient.
+- "Switch (Y)" switches drone movement from forward/back to up/down. See [Drone Move Switch Setup](#drone-move-switch-setup) to enable this.
+- "OIS" is the hand stabilize feature
+
+### VRCLens in desktop mode
+
+- Enable "Hand Rotate" to rotate drone using mouse
+- Switch between top right preview (Shift+F1), center preview (Shift+F2), and full screen preview (Shift+F3)
+- Ensure DirectCast is turned off in VRCLens settings for post-processing to work (Advanced > Movie Mode)
+
+---
+
 ## Personal Modifications
+
+This repo contains my own modifications to VRCLensOSC and VRCLens:
 
 - Remapped Drone Move Forward (T)/Left (F)/Right (H)/Back (G) to IJKL
 - Unmapped Drone Move Switch (Y)
@@ -78,26 +115,6 @@ To allow drone movement without interruption from other toggles, create a new pa
     2. Change all transitions that use `VRCLFeatureToggle NotEquals 212` to `VRCLDroneMove NotEquals 212`: `MoveH -> DroneStop`, `MoveV -> DroneStop`.
     3. Change the `DroneStop [i3]` state's parameter driver to set `VRCLInterrupt` to `0` instead of `3`.
 4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
-
-### Upgrading VRCLens
-
-When upgrading VRCLens, all animator layer modifications are reset when you re-apply VRCLens, so you'll have to repeat the Animator setup steps (but don't have to re-add the custom added parameters).
-
-## Usage
-
-- Run VRCLensOSC.exe
-- Enable OSC in VRChat (Action Menu: Options > OSC > Enabled)
-- Click "Connect" in VRCLensOSC
-- Click "Enable Shortkey" to enable keyboard shortcuts
-
-### Drone Movement
-
-- Enable "Hand Rotate" to rotate drone using mouse
-- Adjust drone speed using "Fo/Back", "Left/Right" number inputs. Ranges from `0` (slowest) to `1.0` (fastest), default is `0.50`. E.g., to make drone move slower, change these to `0.1`.
-
-## Compatibility
-
-- Last tested with VRCLens v1.8.1
 
 ## Build from source
 
