@@ -79,6 +79,7 @@ This repo contains my own modifications to VRCLensOSC and VRCLens:
 - Added hotkey to toggle Enable Shortkey (Ctrl + ~)
 - Added hotkey to toggle Focus Peaking (Del)
 - Added support for drone movement without interruption from other toggles. Requires VRCLens/avatar modifications in Unity. See [optional drone movement without interruption setup](#optional-drone-movement-without-interruption-setup).
+- Added hotkey to always turn DoF off. Requires VRCLens/avatar modifications in Unity. See [optional DoF off toggle setup](#optional-dof-off-toggle-setup).
 
 ### Optional 3-dimensional movement setup
 
@@ -108,12 +109,23 @@ To enable vertical pivot movement with the Drove Move Up (O) and Down (U) keys:
 
 To allow drone movement without interruption from other toggles, create a new parameter to use for the movement toggle so it doesn't overlap with other toggles.
 
-1. Add a `VRCLDroneMove` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
-2. Add a `VRCLDroneMove` Float parameter to FX Layer parameters (default `0`)
+1. Add a `VRCL_Custom/DroneMove` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
+2. Add a `VRCL_Custom/DroneMove` Int parameter to FX Layer parameters (default `0`)
 3. Open FX Layer in Animator. In the `vCNP_Drone 212-214 i234` layer:
-    1. Change all transitions that use `VRCLFeatureToggle Equals 212` to `VRCLDroneMove Equals 212`: `Idle -> InitDrop`, `InitDropReset -> MoveH`.
-    2. Change all transitions that use `VRCLFeatureToggle NotEquals 212` to `VRCLDroneMove NotEquals 212`: `MoveH -> DroneStop`, `MoveV -> DroneStop`.
+    1. Change all transitions that use `VRCLFeatureToggle Equals 212` to `VRCL_Custom/DroneMove Equals 212`: `Idle -> InitDrop`, `InitDropReset -> MoveH`.
+    2. Change all transitions that use `VRCLFeatureToggle NotEquals 212` to `VRCL_Custom/DroneMove NotEquals 212`: `MoveH -> DroneStop`, `MoveV -> DroneStop`.
     3. Change the `DroneStop [i3]` state's parameter driver to set `VRCLInterrupt` to `0` instead of `3`.
+4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
+
+### Optional DoF off toggle setup 
+
+To toggle DoF off from either Av or DEP mode, create a new parameter for custom feature toggles and modify the animator:
+
+1. Add a `VRCL_Custom/FeatureToggle` Int parameter to Expression Menu parameters (default `0`, Saved unchecked)
+2. Add a `VRCL_Custom/FeatureToggle` Int parameter to FX Layer parameters (default `0`)
+3. Open FX Layer in Animator. In the `vCNT_DoF 11` layer:
+    1. Add a transition from `DoFEnabled` to `DoFDisabled`. Uncheck "Has Exit Time" and set the Transition Duration to `0`. Add a condition, `VRCL_Custom/FeatureToggle Equals 11`.
+    2. Add the same transition from `DoFAvDisabled` to `DoFDisable`.
 4. Upload avatar. If the toggle doesn't work in game, delete your `%UserProfile%\AppData\LocalLow\VRChat\VRChat\OSC` folder and re-swap into your avatar.
 
 ## Build from source

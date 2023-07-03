@@ -97,6 +97,7 @@
             this.btnDroneTurbo = new System.Windows.Forms.Button();
             this.btnDropPivot = new System.Windows.Forms.Button();
             this.btnResetZoom = new System.Windows.Forms.Button();
+            this.btnFocusPeaking = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -129,7 +130,7 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnFocusPeaking = new System.Windows.Forms.Button();
+            this.btnDoFOff = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -819,6 +820,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnDropPivot, 3, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnFocusPeaking, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnDoFOff, 2, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -974,6 +976,17 @@
             this.btnResetZoom.Text = "ResetZoom (Shf =)";
             this.btnResetZoom.UseVisualStyleBackColor = true;
             this.btnResetZoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnZoomReset_MouseDown);
+            // 
+            // btnFocusPeaking
+            // 
+            this.btnFocusPeaking.Location = new System.Drawing.Point(165, 56);
+            this.btnFocusPeaking.Name = "btnFocusPeaking";
+            this.btnFocusPeaking.Size = new System.Drawing.Size(51, 47);
+            this.btnFocusPeaking.TabIndex = 13;
+            this.btnFocusPeaking.Text = "Focus Peak\r\n(Del)";
+            this.btnFocusPeaking.UseVisualStyleBackColor = true;
+            this.btnFocusPeaking.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusPeaking_MouseDown);
+            this.btnFocusPeaking.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
             // 
             // groupBox1
             // 
@@ -1294,16 +1307,16 @@
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
-            // btnFocusPeaking
+            // btnDoFOff
             // 
-            this.btnFocusPeaking.Location = new System.Drawing.Point(165, 56);
-            this.btnFocusPeaking.Name = "btnFocusPeaking";
-            this.btnFocusPeaking.Size = new System.Drawing.Size(51, 47);
-            this.btnFocusPeaking.TabIndex = 13;
-            this.btnFocusPeaking.Text = "Focus Peak\r\n(Del)";
-            this.btnFocusPeaking.UseVisualStyleBackColor = true;
-            this.btnFocusPeaking.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusPeaking_MouseDown);
-            this.btnFocusPeaking.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
+            this.btnDoFOff.Location = new System.Drawing.Point(111, 162);
+            this.btnDoFOff.Name = "btnDoFOff";
+            this.btnDoFOff.Size = new System.Drawing.Size(48, 50);
+            this.btnDoFOff.TabIndex = 14;
+            this.btnDoFOff.Text = "DoF Off";
+            this.btnDoFOff.UseVisualStyleBackColor = true;
+            this.btnDoFOff.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDoFOff_MouseDown);
+            this.btnDoFOff.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
             // 
             // MainForm
             // 
@@ -1474,6 +1487,7 @@
         private System.Windows.Forms.NumericUpDown stepMinMoveHV;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnFocusPeaking;
+        private System.Windows.Forms.Button btnDoFOff;
     }
 }
 

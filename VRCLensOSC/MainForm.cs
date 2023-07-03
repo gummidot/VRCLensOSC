@@ -34,10 +34,19 @@ namespace VRCLensOSC
         {
             Reset = 0,
             FocusPeakingZebra = 1,
+            DoF = 11,
             AvatarAutoFocus = 13,
             Move = 212,
             PivotMove = 214,
             DropPivot = 253
+        }
+
+        // Custom feature toggles for VRCL_Custom/FeatureToggle
+        public enum CustomFeatureToggle
+        {
+            Reset = 0,
+            DoFOff = 11,
+            Move = 212
         }
 
         public MainForm()
@@ -420,7 +429,9 @@ namespace VRCLensOSC
                     if (e.Shift) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle",  (int)DroneFeatureToggle.DropPivot));
                         btnDropPivot.Enabled = false;
-                    } else {
+                    }
+                    else
+                    {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 251));
                         btnDrop.Enabled = false;
                     }
@@ -429,7 +440,9 @@ namespace VRCLensOSC
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 14));
                         btnOIS.Enabled = false;
-                    } else {
+                    } 
+                    else
+                    {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 250));
                         btnHandRotate.Enabled = false;
                     }
@@ -438,11 +451,20 @@ namespace VRCLensOSC
                     if (e.Control) {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 254));
                         btnEnable.Enabled = false;
-                    } else if (e.Shift) {
+                    }
+                    else if (e.Shift)
+                    {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle",  (int)DroneFeatureToggle.AvatarAutoFocus));
                         btnAvAutoFocus.Enabled = false;
-                    } else {
-                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 11));
+                    }
+                    else if (e.Alt)
+                    {
+                        this.ToggleDoFOff();
+                        btnDoFOff.Enabled = false;
+                    }
+                    else
+                    {
+                        osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.DoF));
                         btnDoF.Enabled = false;
                     }
                     break;
@@ -581,14 +603,26 @@ namespace VRCLensOSC
                     }
                     break;
                 case Keys.Home:
-                    if (e.Control) {
+                    if (e.Control)
+                    {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                         btnEnable.Enabled = true;
-                    } else if (e.Shift) {
+                    }
+                    else if (e.Shift)
+                    {
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
                         btnAvAutoFocus.Enabled = true;
-                    } else {
+                    }
+                    else if (e.Alt)
+                    {
+                        this.CustomFeatureToggleReset();
+                        btnDoFOff.Enabled = true;
+                    }
+                    else
+                    {
+                        // Reset both feature toggles in case a modifier key was unpressed before KeyUp
                         osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 0));
+                        this.CustomFeatureToggleReset();
                         btnDoF.Enabled = true;
                     }
                     break;
@@ -615,6 +649,10 @@ namespace VRCLensOSC
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.Reset));
         }
+        private void CustomFeatureToggleReset()
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCL_Custom/FeatureToggle", (int)CustomFeatureToggle.Reset));
+        }
 
         private void UseDrone(int t, bool b)
         {
@@ -626,7 +664,7 @@ namespace VRCLensOSC
             // Set optional custom parameter to move drone without interruption from other toggles
             if (t == (int)DroneFeatureToggle.Move)
             {
-                osc.Send(new OscMessage("/avatar/parameters/VRCLDroneMove", (b) ? 0 : t));
+                osc.Send(new OscMessage("/avatar/parameters/VRCL_Custom/DroneMove", (b) ? 0 : t));
             }
 
             btnDroneForward.Enabled = b;
@@ -650,8 +688,9 @@ namespace VRCLensOSC
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (b) ? 0 : t));
 
             // Set optional custom parameter to move drone without interruption from other toggles
+            if (t == (int)DroneFeatureToggle.Move)
             {
-                osc.Send(new OscMessage("/avatar/parameters/VRCLDroneMove", (b) ? 0 : t));
+                osc.Send(new OscMessage("/avatar/parameters/VRCL_Custom/DroneMove", (b) ? 0 : t));
             }
 
             if (ui)
@@ -703,6 +742,11 @@ namespace VRCLensOSC
         private void ToggleFocusPeaking()
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.FocusPeakingZebra));
+        }
+
+        private void ToggleDoFOff()
+        {
+            osc.Send(new OscMessage("/avatar/parameters/VRCL_Custom/FeatureToggle", (int)CustomFeatureToggle.DoFOff));
         }
 
         //------------------------------------------------------------------------------------
@@ -910,7 +954,7 @@ namespace VRCLensOSC
 
         private void btnDoF_MouseDown(object sender, MouseEventArgs e)
         {
-            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", 11));
+            osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.DoF));
         }
 
         private void btnDoF_MouseUp(object sender, MouseEventArgs e)
@@ -1207,6 +1251,10 @@ namespace VRCLensOSC
         private void btnFocusPeaking_MouseDown(object sender, MouseEventArgs e)
         {
             this.ToggleFocusPeaking();
+        }
+        private void btnDoFOff_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.ToggleDoFOff();
         }
 
         // Generic handler for toggle buttons that require a feature toggle reset
