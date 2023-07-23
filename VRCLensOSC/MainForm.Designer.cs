@@ -98,6 +98,7 @@
             this.btnDropPivot = new System.Windows.Forms.Button();
             this.btnResetZoom = new System.Windows.Forms.Button();
             this.btnFocusPeaking = new System.Windows.Forms.Button();
+            this.btnDoFOff = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -130,7 +131,6 @@
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
-            this.btnDoFOff = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -988,6 +988,18 @@
             this.btnFocusPeaking.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFocusPeaking_MouseDown);
             this.btnFocusPeaking.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
             // 
+            // btnDoFOff
+            // 
+            this.btnDoFOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoFOff.Location = new System.Drawing.Point(111, 162);
+            this.btnDoFOff.Name = "btnDoFOff";
+            this.btnDoFOff.Size = new System.Drawing.Size(48, 50);
+            this.btnDoFOff.TabIndex = 14;
+            this.btnDoFOff.Text = "DoF Off\r\n(Alt+Home)";
+            this.btnDoFOff.UseVisualStyleBackColor = true;
+            this.btnDoFOff.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDoFOff_MouseDown);
+            this.btnDoFOff.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
@@ -1306,17 +1318,6 @@
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
-            // 
-            // btnDoFOff
-            // 
-            this.btnDoFOff.Location = new System.Drawing.Point(111, 162);
-            this.btnDoFOff.Name = "btnDoFOff";
-            this.btnDoFOff.Size = new System.Drawing.Size(48, 50);
-            this.btnDoFOff.TabIndex = 14;
-            this.btnDoFOff.Text = "DoF Off";
-            this.btnDoFOff.UseVisualStyleBackColor = true;
-            this.btnDoFOff.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDoFOff_MouseDown);
-            this.btnDoFOff.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDroneFeatureToggleReset_MouseUp);
             // 
             // MainForm
             // 
