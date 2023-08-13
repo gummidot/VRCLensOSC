@@ -80,6 +80,7 @@ This repo contains my own modifications to VRCLensOSC and VRCLens:
 - Added hotkey to toggle Focus Peaking (Del)
 - Added support for drone movement without interruption from other toggles. Requires VRCLens/avatar modifications in Unity. See [optional drone movement without interruption setup](#optional-drone-movement-without-interruption-setup).
 - Added hotkey to always turn DoF off (Alt + Home). Requires VRCLens/avatar modifications in Unity. See [optional DoF off toggle setup](#optional-dof-off-toggle-setup).
+- Added hotkeys to increase or decrease Drone Speed (7 and 8) or toggle between two speeds (6)
 
 ### Optional 3-dimensional movement setup
 

@@ -26,6 +26,7 @@ namespace VRCLensOSC
         private bool DroneTurbo = false;
         private const float DroneTurboStep = 1f;
         private int DefaultSldZoom;
+        private bool DroneSpeedToggle = false;
 
         private XBoxController controller;
         private int controllerIndex = 1;
@@ -104,6 +105,12 @@ namespace VRCLensOSC
                                 else sldFocus.Value = pkt2sld(packet[1]);
                                 if (lbFocus.InvokeRequired) lbFocus.Invoke((MethodInvoker)delegate { lbFocus.Text = Math.Round(sldFocus.Value * DivPer) + "%"; });
                                 else lbFocus.Text = Math.Round(sldFocus.Value * DivPer) + "%";
+                                break;
+                            case "/avatar/parameters/VRCLInt_DroneSpeed":
+                                if (sldSpeed.InvokeRequired) sldSpeed.Invoke((MethodInvoker)delegate { sldSpeed.Value = pkt2sld(packet[1]); });
+                                else sldSpeed.Value = pkt2sld(packet[1]);
+                                if (lbSpeed.InvokeRequired) lbSpeed.Invoke((MethodInvoker)delegate { lbSpeed.Text = Math.Round(sldSpeed.Value * DivPer) + "%"; });
+                                else lbSpeed.Text = Math.Round(sldSpeed.Value * DivPer) + "%";
                                 break;
                             case "/avatar/parameters/VRCLDroneSwitch":
                                 if (int.TryParse(packet[1], out int n))
@@ -330,6 +337,17 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
                 case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
                 case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
+                case Keys.D7:
+                    TimerSpeedSlower.Enabled = true;
+                    btnSpeedSlower.Enabled = false;
+                    break;
+                case Keys.D8:
+                    TimerSpeedFaster.Enabled = true;
+                    btnSpeedFaster.Enabled = false;
+                    break;
+                case Keys.D6:
+                    ToggleDroneSpeed();
+                    break;
                 case Keys.I:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", stepV));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
@@ -500,6 +518,14 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = false; btnApGreat.Enabled = true; break;
                 case Keys.D9: TimerFocusClo.Enabled = false; btnFocusClo.Enabled = true; break;
                 case Keys.D0: TimerFocusFur.Enabled = false; btnFocusFur.Enabled = true; break;
+                case Keys.D7:
+                    TimerSpeedSlower.Enabled = false;
+                    btnSpeedSlower.Enabled = true;
+                    break;
+                case Keys.D8:
+                    TimerSpeedFaster.Enabled = false;
+                    btnSpeedFaster.Enabled = true;
+                    break;
                 case Keys.I:
                     if (DroneKey % (int)e.KeyCode == 0)
                     {
@@ -538,7 +564,7 @@ namespace VRCLensOSC
                         DroneKey /= (int)e.KeyCode;
                         osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", 0f));
                     }
-                    if (DroneKey == 1) UseDrone(212, false);
+                    if (DroneKey == 1) UseDrone((int)DroneFeatureToggle.Move, false);
                     break;
                 case Keys.U:
                     if (DroneKey % (int)e.KeyCode == 0)
@@ -546,7 +572,7 @@ namespace VRCLensOSC
                         DroneKey /= (int)e.KeyCode;
                         osc.Send(new OscMessage("/avatar/parameters/VRCLDroneV", 0f));
                     }
-                    if (DroneKey == 1) UseDrone(212, false);
+                    if (DroneKey == 1) UseDrone((int)DroneFeatureToggle.Move, false);
                     break;
                 case Keys.Up:
                     if (DroneRotKey % (int)e.KeyCode == 0)
@@ -739,6 +765,19 @@ namespace VRCLensOSC
             osc.Send(new OscMessage("/avatar/parameters/VRCLFocusRadial", this.sldFocus.Value * Div));
         }
 
+        private void OSCSpeed()
+        {
+            this.lbSpeed.Text = ((int)Math.Round(this.sldSpeed.Value * DivPer)).ToString() + "%";
+            osc.Send(new OscMessage("/avatar/parameters/VRCLInt_DroneSpeed", this.sldSpeed.Value * Div));
+        }
+
+        private void ToggleDroneSpeed()
+        {
+            this.DroneSpeedToggle = !this.DroneSpeedToggle;
+            this.sldSpeed.Value = (this.DroneSpeedToggle ? (int) this.stepSpeedA.Value : (int) this.stepSpeedB.Value) * 100;
+            this.OSCSpeed();
+        }
+
         private void ToggleFocusPeaking()
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.FocusPeakingZebra));
@@ -928,6 +967,51 @@ namespace VRCLensOSC
         private void btnFocusFur_MouseUp(object sender, MouseEventArgs e)
         {
             this.TimerFocusFur.Enabled = false;
+        }
+
+        #endregion
+
+        //------------------------------------------------------------------------------------
+
+        #region Speed Control
+
+        private void sldSpeed_Scroll(object sender, EventArgs e)
+        {
+            OSCSpeed();
+        }
+
+        private void TimerSpeedSlower_Tick(object sender, EventArgs e)
+        {
+            if (this.sldSpeed.Value - (int)this.stepSpeed.Value < 0) this.sldSpeed.Value = 0;
+            else this.sldSpeed.Value -= (int)this.stepSpeed.Value;
+            OSCSpeed();
+        }
+
+        private void btnSpeedSlower_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.TimerSpeedSlower.Enabled = true;
+        }
+
+        private void btnSpeedSlower_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.TimerSpeedSlower.Enabled = false;
+        }
+
+        private void TimerSpeedFaster_Tick(object sender, EventArgs e)
+        {
+            if (this.sldSpeed.Value + (int)this.stepSpeed.Value > Multi) this.sldSpeed.Value = Multi;
+            else this.sldSpeed.Value += (int)this.stepSpeed.Value;
+            OSCSpeed();
+        }
+
+        private void btnSpeedFaster_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.TimerSpeedFaster.Enabled = true;
+        }
+
+        private void btnSpeedFaster_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.TimerSpeedFaster.Enabled = false;
         }
 
         #endregion

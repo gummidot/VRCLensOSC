@@ -129,8 +129,25 @@
             this.TimerApGrea = new System.Windows.Forms.Timer(this.components);
             this.TimerFocusClo = new System.Windows.Forms.Timer(this.components);
             this.TimerFocusFur = new System.Windows.Forms.Timer(this.components);
+            this.TimerSpeedSlower = new System.Windows.Forms.Timer(this.components);
+            this.TimerSpeedFaster = new System.Windows.Forms.Timer(this.components);
             this.oscListener = new System.ComponentModel.BackgroundWorker();
             this.lbVer = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lbSpeed = new System.Windows.Forms.Label();
+            this.stepSpeed = new System.Windows.Forms.NumericUpDown();
+            this.btnSpeedFaster = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnSpeedSlower = new System.Windows.Forms.Button();
+            this.sldSpeed = new System.Windows.Forms.TrackBar();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.stepSpeedB = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.stepSpeedA = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnToggleDroneSpeed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -162,6 +179,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepRotH)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sldSpeed)).BeginInit();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeedB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeedA)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
@@ -821,7 +844,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnFocusPeaking, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnDoFOff, 2, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 310);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 445);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -1003,7 +1026,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 310);
+            this.groupBox1.Location = new System.Drawing.Point(10, 445);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(204, 215);
             this.groupBox1.TabIndex = 15;
@@ -1013,7 +1036,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(216, 310);
+            this.groupBox2.Location = new System.Drawing.Point(216, 445);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(204, 215);
             this.groupBox2.TabIndex = 16;
@@ -1310,20 +1333,198 @@
             this.TimerFocusFur.Interval = 10;
             this.TimerFocusFur.Tick += new System.EventHandler(this.TimerFocusFur_Tick);
             // 
+            // TimerSpeedSlower
+            // 
+            this.TimerSpeedSlower.Interval = 10;
+            this.TimerSpeedSlower.Tick += new System.EventHandler(this.TimerSpeedSlower_Tick);
+            // 
+            // TimerSpeedFaster
+            // 
+            this.TimerSpeedFaster.Interval = 10;
+            this.TimerSpeedFaster.Tick += new System.EventHandler(this.TimerSpeedFaster_Tick);
+            // 
             // lbVer
             // 
             this.lbVer.AutoSize = true;
-            this.lbVer.Location = new System.Drawing.Point(593, 512);
+            this.lbVer.Location = new System.Drawing.Point(593, 647);
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
             this.lbVer.Text = "Ver. 1.1.0b";
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.lbSpeed);
+            this.panel10.Controls.Add(this.stepSpeed);
+            this.panel10.Controls.Add(this.btnSpeedFaster);
+            this.panel10.Controls.Add(this.label18);
+            this.panel10.Controls.Add(this.btnSpeedSlower);
+            this.panel10.Controls.Add(this.sldSpeed);
+            this.panel10.Location = new System.Drawing.Point(10, 309);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(632, 60);
+            this.panel10.TabIndex = 11;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(540, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Strength";
+            // 
+            // lbSpeed
+            // 
+            this.lbSpeed.AutoSize = true;
+            this.lbSpeed.Location = new System.Drawing.Point(417, 23);
+            this.lbSpeed.Name = "lbSpeed";
+            this.lbSpeed.Size = new System.Drawing.Size(27, 13);
+            this.lbSpeed.TabIndex = 8;
+            this.lbSpeed.Text = "25%";
+            // 
+            // stepSpeed
+            // 
+            this.stepSpeed.Location = new System.Drawing.Point(591, 18);
+            this.stepSpeed.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.stepSpeed.Name = "stepSpeed";
+            this.stepSpeed.Size = new System.Drawing.Size(35, 20);
+            this.stepSpeed.TabIndex = 7;
+            this.stepSpeed.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // btnSpeedFaster
+            // 
+            this.btnSpeedFaster.Location = new System.Drawing.Point(463, 3);
+            this.btnSpeedFaster.Name = "btnSpeedFaster";
+            this.btnSpeedFaster.Size = new System.Drawing.Size(72, 53);
+            this.btnSpeedFaster.TabIndex = 3;
+            this.btnSpeedFaster.Text = "Faster\n( 8 )";
+            this.btnSpeedFaster.UseVisualStyleBackColor = true;
+            this.btnSpeedFaster.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSpeedFaster_MouseDown);
+            this.btnSpeedFaster.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSpeedFaster_MouseUp);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label18.Location = new System.Drawing.Point(3, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(56, 20);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Speed";
+            // 
+            // btnSpeedSlower
+            // 
+            this.btnSpeedSlower.Location = new System.Drawing.Point(72, 3);
+            this.btnSpeedSlower.Name = "btnSpeedSlower";
+            this.btnSpeedSlower.Size = new System.Drawing.Size(71, 53);
+            this.btnSpeedSlower.TabIndex = 1;
+            this.btnSpeedSlower.Text = "Slower\n( 7 )";
+            this.btnSpeedSlower.UseVisualStyleBackColor = true;
+            this.btnSpeedSlower.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSpeedSlower_MouseDown);
+            this.btnSpeedSlower.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSpeedSlower_MouseUp);
+            // 
+            // sldSpeed
+            // 
+            this.sldSpeed.Location = new System.Drawing.Point(142, 8);
+            this.sldSpeed.Maximum = 10000;
+            this.sldSpeed.Name = "sldSpeed";
+            this.sldSpeed.Size = new System.Drawing.Size(278, 45);
+            this.sldSpeed.TabIndex = 0;
+            this.sldSpeed.TabStop = false;
+            this.sldSpeed.Value = 2500;
+            this.sldSpeed.Scroll += new System.EventHandler(this.sldSpeed_Scroll);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label19);
+            this.panel11.Controls.Add(this.stepSpeedB);
+            this.panel11.Controls.Add(this.label17);
+            this.panel11.Controls.Add(this.stepSpeedA);
+            this.panel11.Controls.Add(this.label20);
+            this.panel11.Controls.Add(this.btnToggleDroneSpeed);
+            this.panel11.Location = new System.Drawing.Point(10, 375);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(632, 60);
+            this.panel11.TabIndex = 12;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(219, 18);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 13);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "Speed B";
+            // 
+            // stepSpeedB
+            // 
+            this.stepSpeedB.Location = new System.Drawing.Point(220, 34);
+            this.stepSpeedB.Name = "stepSpeedB";
+            this.stepSpeedB.Size = new System.Drawing.Size(55, 20);
+            this.stepSpeedB.TabIndex = 10;
+            this.stepSpeedB.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(148, 18);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Speed A";
+            // 
+            // stepSpeedA
+            // 
+            this.stepSpeedA.Location = new System.Drawing.Point(149, 34);
+            this.stepSpeedA.Name = "stepSpeedA";
+            this.stepSpeedA.Size = new System.Drawing.Size(55, 20);
+            this.stepSpeedA.TabIndex = 7;
+            this.stepSpeedA.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label20.Location = new System.Drawing.Point(3, 18);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 20);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Speed";
+            // 
+            // btnToggleDroneSpeed
+            // 
+            this.btnToggleDroneSpeed.Location = new System.Drawing.Point(72, 3);
+            this.btnToggleDroneSpeed.Name = "btnToggleDroneSpeed";
+            this.btnToggleDroneSpeed.Size = new System.Drawing.Size(71, 53);
+            this.btnToggleDroneSpeed.TabIndex = 1;
+            this.btnToggleDroneSpeed.Text = "Toggle Speed A/B ( 6 )";
+            this.btnToggleDroneSpeed.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 530);
+            this.ClientSize = new System.Drawing.Size(656, 670);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.lbVer);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1381,6 +1582,14 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sldSpeed)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeedB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepSpeedA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1458,6 +1667,8 @@
         private System.Windows.Forms.Timer TimerApGrea;
         private System.Windows.Forms.Timer TimerFocusClo;
         private System.Windows.Forms.Timer TimerFocusFur;
+        private System.Windows.Forms.Timer TimerSpeedSlower;
+        private System.Windows.Forms.Timer TimerSpeedFaster;
         private System.Windows.Forms.Label lbApF;
         private System.Windows.Forms.Button btnDroneHold;
         private System.Windows.Forms.Button btnDroneRotHold;
@@ -1489,6 +1700,21 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnFocusPeaking;
         private System.Windows.Forms.Button btnDoFOff;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbSpeed;
+        private System.Windows.Forms.NumericUpDown stepSpeed;
+        private System.Windows.Forms.Button btnSpeedFaster;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnSpeedSlower;
+        private System.Windows.Forms.TrackBar sldSpeed;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.NumericUpDown stepSpeedA;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnToggleDroneSpeed;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.NumericUpDown stepSpeedB;
     }
 }
 
