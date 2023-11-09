@@ -50,6 +50,12 @@ namespace VRCLensOSC
             Move = 212
         }
 
+        // Qadesh Dolly
+        public const string QDollyParamChairMovement = "ChairMovement";
+        public const string QDollyParamRedChairSpeed = "RedChairSpeed";
+
+        private bool QDollyChairMovement = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -111,6 +117,12 @@ namespace VRCLensOSC
                                 else sldSpeed.Value = pkt2sld(packet[1]);
                                 if (lbSpeed.InvokeRequired) lbSpeed.Invoke((MethodInvoker)delegate { lbSpeed.Text = Math.Round(sldSpeed.Value * DivPer) + "%"; });
                                 else lbSpeed.Text = Math.Round(sldSpeed.Value * DivPer) + "%";
+                                break;
+                            case "/avatar/parameters/" + QDollyParamRedChairSpeed:
+                                if (sldQDollySpeed.InvokeRequired) sldQDollySpeed.Invoke((MethodInvoker)delegate { sldQDollySpeed.Value = pkt2sld(packet[1]); });
+                                else sldQDollySpeed.Value = pkt2sld(packet[1]);
+                                if (lbQDollySpeed.InvokeRequired) lbQDollySpeed.Invoke((MethodInvoker)delegate { lbQDollySpeed.Text = Math.Round(sldQDollySpeed.Value * DivPer) + "%"; });
+                                else lbQDollySpeed.Text = Math.Round(sldQDollySpeed.Value * DivPer) + "%";
                                 break;
                             case "/avatar/parameters/VRCLDroneSwitch":
                                 if (int.TryParse(packet[1], out int n))
@@ -348,6 +360,17 @@ namespace VRCLensOSC
                 case Keys.D6:
                     ToggleDroneSpeed();
                     break;
+                case Keys.D3:
+                    ToggleQDollyChairMovement();
+                    break;
+                case Keys.D1:
+                    TimerQDollySpeedSlower.Enabled = true;
+                    btnQDollySpeedSlower.Enabled = false;
+                    break;
+                case Keys.D2:
+                    TimerQDollySpeedFaster.Enabled = true;
+                    btnQDollySpeedFaster.Enabled = false;
+                    break;
                 case Keys.I:
                     osc.Send(new OscMessage("/avatar/parameters/VRCFaceBlendV", stepV));
                     if (DroneKey % (int)e.KeyCode != 0) DroneKey *= (int)e.KeyCode;
@@ -525,6 +548,14 @@ namespace VRCLensOSC
                 case Keys.D8:
                     TimerSpeedFaster.Enabled = false;
                     btnSpeedFaster.Enabled = true;
+                    break;
+                case Keys.D1:
+                    TimerQDollySpeedSlower.Enabled = false;
+                    btnQDollySpeedSlower.Enabled = true;
+                    break;
+                case Keys.D2:
+                    TimerQDollySpeedFaster.Enabled = false;
+                    btnQDollySpeedFaster.Enabled = true;
                     break;
                 case Keys.I:
                     if (DroneKey % (int)e.KeyCode == 0)
@@ -778,6 +809,12 @@ namespace VRCLensOSC
             this.OSCSpeed();
         }
 
+        private void OSCQDollySpeed()
+        {
+            this.lbQDollySpeed.Text = ((int)Math.Round(this.sldQDollySpeed.Value * DivPer)).ToString() + "%";
+            osc.Send(new OscMessage($"/avatar/parameters/{QDollyParamRedChairSpeed}", this.sldQDollySpeed.Value * Div));
+        }
+
         private void ToggleFocusPeaking()
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCLFeatureToggle", (int)DroneFeatureToggle.FocusPeakingZebra));
@@ -786,6 +823,12 @@ namespace VRCLensOSC
         private void ToggleDoFOff()
         {
             osc.Send(new OscMessage("/avatar/parameters/VRCL_Custom/FeatureToggle", (int)CustomFeatureToggle.DoFOff));
+        }
+
+        private void ToggleQDollyChairMovement()
+        {
+            QDollyChairMovement = !QDollyChairMovement;
+            osc.Send(new OscMessage($"/avatar/parameters/{QDollyParamChairMovement}", QDollyChairMovement));
         }
 
         //------------------------------------------------------------------------------------
@@ -1012,6 +1055,51 @@ namespace VRCLensOSC
         private void btnSpeedFaster_MouseUp(object sender, MouseEventArgs e)
         {
             this.TimerSpeedFaster.Enabled = false;
+        }
+
+        #endregion
+
+        //------------------------------------------------------------------------------------
+
+        #region Dolly Speed Control
+
+        private void sldQDollySpeed_Scroll(object sender, EventArgs e)
+        {
+            OSCQDollySpeed();
+        }
+
+        private void TimerQDollySpeedSlower_Tick(object sender, EventArgs e)
+        {
+            if (this.sldQDollySpeed.Value - (int)this.stepQDollySpeed.Value < -Multi) this.sldQDollySpeed.Value = -Multi;
+            else this.sldQDollySpeed.Value -= (int)this.stepQDollySpeed.Value;
+            OSCQDollySpeed();
+        }
+
+        private void btnQDollySpeedSlower_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.TimerQDollySpeedSlower.Enabled = true;
+        }
+
+        private void btnQDollySpeedSlower_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.TimerQDollySpeedSlower.Enabled = false;
+        }
+
+        private void TimerQDollySpeedFaster_Tick(object sender, EventArgs e)
+        {
+            if (this.sldQDollySpeed.Value + (int)this.stepQDollySpeed.Value > Multi) this.sldQDollySpeed.Value = Multi;
+            else this.sldQDollySpeed.Value += (int)this.stepQDollySpeed.Value;
+            OSCQDollySpeed();
+        }
+
+        private void btnQDollySpeedFaster_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.TimerQDollySpeedFaster.Enabled = true;
+        }
+
+        private void btnQDollySpeedFaster_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.TimerQDollySpeedFaster.Enabled = false;
         }
 
         #endregion
