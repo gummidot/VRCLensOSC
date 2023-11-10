@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
@@ -27,6 +27,7 @@ namespace VRCLensOSC
         private const float DroneTurboStep = 1f;
         private int DefaultSldZoom;
         private bool DroneSpeedToggle = false;
+        private bool FocusApToggle = false;
 
         private XBoxController controller;
         private int controllerIndex = 1;
@@ -349,6 +350,9 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
                 case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
                 case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
+                case Keys.OemPipe:
+                    ToggleFocusAp();
+                    break;
                 case Keys.D7:
                     TimerSpeedSlower.Enabled = true;
                     btnSpeedSlower.Enabled = false;
@@ -794,6 +798,15 @@ namespace VRCLensOSC
         {
             this.lbFocus.Text = ((int)Math.Round(this.sldFocus.Value * DivPer)).ToString() + "%";
             osc.Send(new OscMessage("/avatar/parameters/VRCLFocusRadial", this.sldFocus.Value * Div));
+        }
+
+        private void ToggleFocusAp()
+        {
+            this.FocusApToggle = !this.FocusApToggle;
+            this.sldFocus.Value = (this.FocusApToggle ? (int)this.stepFocusA.Value : (int)this.stepFocusB.Value) * 100;
+            this.sldAp.Value = (this.FocusApToggle ? (int)this.stepApertureA.Value : (int)this.stepApertureB.Value) * 100;
+            this.OSCFocus();
+            this.OSCAp();
         }
 
         private void OSCSpeed()
@@ -1433,6 +1446,16 @@ namespace VRCLensOSC
         private void btnDroneFeatureToggleReset_MouseUp(object sender, MouseEventArgs e)
         {
             this.DroneFeatureToggleReset();
+        }
+
+        private void btnDroneSpeedToggle_Click(object sender, EventArgs e)
+        {
+            ToggleDroneSpeed();
+        }
+
+        private void btnToggleFocusAp_Click(object sender, EventArgs e)
+        {
+            ToggleFocusAp();
         }
     }
 }

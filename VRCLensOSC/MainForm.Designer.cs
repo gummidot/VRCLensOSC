@@ -158,6 +158,17 @@
             this.label23 = new System.Windows.Forms.Label();
             this.btnQDollySpeedSlower = new System.Windows.Forms.Button();
             this.sldQDollySpeed = new System.Windows.Forms.TrackBar();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.labelApertureB = new System.Windows.Forms.Label();
+            this.stepApertureB = new System.Windows.Forms.NumericUpDown();
+            this.labelApertureA = new System.Windows.Forms.Label();
+            this.stepApertureA = new System.Windows.Forms.NumericUpDown();
+            this.labelFocusB = new System.Windows.Forms.Label();
+            this.stepFocusB = new System.Windows.Forms.NumericUpDown();
+            this.labelFocusA = new System.Windows.Forms.Label();
+            this.stepFocusA = new System.Windows.Forms.NumericUpDown();
+            this.labelFocusAp = new System.Windows.Forms.Label();
+            this.btnToggleFocusAp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -198,6 +209,11 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepQDollySpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldQDollySpeed)).BeginInit();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepApertureB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepApertureA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepFocusB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepFocusA)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
@@ -857,7 +873,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnFocusPeaking, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnDoFOff, 2, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 532);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 598);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -1039,7 +1055,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 532);
+            this.groupBox1.Location = new System.Drawing.Point(10, 598);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(204, 215);
             this.groupBox1.TabIndex = 15;
@@ -1049,7 +1065,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(216, 532);
+            this.groupBox2.Location = new System.Drawing.Point(216, 598);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(204, 215);
             this.groupBox2.TabIndex = 16;
@@ -1369,7 +1385,7 @@
             // lbVer
             // 
             this.lbVer.AutoSize = true;
-            this.lbVer.Location = new System.Drawing.Point(593, 734);
+            this.lbVer.Location = new System.Drawing.Point(593, 800);
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
@@ -1384,7 +1400,7 @@
             this.panel10.Controls.Add(this.label18);
             this.panel10.Controls.Add(this.btnSpeedSlower);
             this.panel10.Controls.Add(this.sldSpeed);
-            this.panel10.Location = new System.Drawing.Point(10, 309);
+            this.panel10.Location = new System.Drawing.Point(10, 375);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(632, 60);
             this.panel10.TabIndex = 11;
@@ -1475,7 +1491,7 @@
             this.panel11.Controls.Add(this.stepSpeedA);
             this.panel11.Controls.Add(this.label20);
             this.panel11.Controls.Add(this.btnToggleDroneSpeed);
-            this.panel11.Location = new System.Drawing.Point(10, 375);
+            this.panel11.Location = new System.Drawing.Point(10, 441);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(632, 60);
             this.panel11.TabIndex = 12;
@@ -1540,6 +1556,7 @@
             this.btnToggleDroneSpeed.TabIndex = 1;
             this.btnToggleDroneSpeed.Text = "Toggle Speed A/B ( 6 )";
             this.btnToggleDroneSpeed.UseVisualStyleBackColor = true;
+            this.btnToggleDroneSpeed.Click += new System.EventHandler(this.btnDroneSpeedToggle_Click);
             // 
             // panel12
             // 
@@ -1550,7 +1567,7 @@
             this.panel12.Controls.Add(this.label23);
             this.panel12.Controls.Add(this.btnQDollySpeedSlower);
             this.panel12.Controls.Add(this.sldQDollySpeed);
-            this.panel12.Location = new System.Drawing.Point(10, 441);
+            this.panel12.Location = new System.Drawing.Point(10, 507);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(632, 60);
             this.panel12.TabIndex = 12;
@@ -1634,11 +1651,118 @@
             this.sldQDollySpeed.Value = 10000;
             this.sldQDollySpeed.Scroll += new System.EventHandler(this.sldQDollySpeed_Scroll);
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.labelApertureB);
+            this.panel13.Controls.Add(this.stepApertureB);
+            this.panel13.Controls.Add(this.labelApertureA);
+            this.panel13.Controls.Add(this.stepApertureA);
+            this.panel13.Controls.Add(this.labelFocusB);
+            this.panel13.Controls.Add(this.stepFocusB);
+            this.panel13.Controls.Add(this.labelFocusA);
+            this.panel13.Controls.Add(this.stepFocusA);
+            this.panel13.Controls.Add(this.labelFocusAp);
+            this.panel13.Controls.Add(this.btnToggleFocusAp);
+            this.panel13.Location = new System.Drawing.Point(10, 313);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(632, 60);
+            this.panel13.TabIndex = 13;
+            // 
+            // labelApertureB
+            // 
+            this.labelApertureB.AutoSize = true;
+            this.labelApertureB.Location = new System.Drawing.Point(363, 18);
+            this.labelApertureB.Name = "labelApertureB";
+            this.labelApertureB.Size = new System.Drawing.Size(57, 13);
+            this.labelApertureB.TabIndex = 15;
+            this.labelApertureB.Text = "Aperture B";
+            // 
+            // stepApertureB
+            // 
+            this.stepApertureB.Location = new System.Drawing.Point(364, 34);
+            this.stepApertureB.Name = "stepApertureB";
+            this.stepApertureB.Size = new System.Drawing.Size(55, 20);
+            this.stepApertureB.TabIndex = 14;
+            // 
+            // labelApertureA
+            // 
+            this.labelApertureA.AutoSize = true;
+            this.labelApertureA.Location = new System.Drawing.Point(292, 18);
+            this.labelApertureA.Name = "labelApertureA";
+            this.labelApertureA.Size = new System.Drawing.Size(57, 13);
+            this.labelApertureA.TabIndex = 13;
+            this.labelApertureA.Text = "Aperture A";
+            // 
+            // stepApertureA
+            // 
+            this.stepApertureA.Location = new System.Drawing.Point(293, 34);
+            this.stepApertureA.Name = "stepApertureA";
+            this.stepApertureA.Size = new System.Drawing.Size(55, 20);
+            this.stepApertureA.TabIndex = 12;
+            // 
+            // labelFocusB
+            // 
+            this.labelFocusB.AutoSize = true;
+            this.labelFocusB.Location = new System.Drawing.Point(219, 18);
+            this.labelFocusB.Name = "labelFocusB";
+            this.labelFocusB.Size = new System.Drawing.Size(46, 13);
+            this.labelFocusB.TabIndex = 11;
+            this.labelFocusB.Text = "Focus B";
+            // 
+            // stepFocusB
+            // 
+            this.stepFocusB.Location = new System.Drawing.Point(220, 34);
+            this.stepFocusB.Name = "stepFocusB";
+            this.stepFocusB.Size = new System.Drawing.Size(55, 20);
+            this.stepFocusB.TabIndex = 10;
+            // 
+            // labelFocusA
+            // 
+            this.labelFocusA.AutoSize = true;
+            this.labelFocusA.Location = new System.Drawing.Point(148, 18);
+            this.labelFocusA.Name = "labelFocusA";
+            this.labelFocusA.Size = new System.Drawing.Size(46, 13);
+            this.labelFocusA.TabIndex = 9;
+            this.labelFocusA.Text = "Focus A";
+            // 
+            // stepFocusA
+            // 
+            this.stepFocusA.Location = new System.Drawing.Point(149, 34);
+            this.stepFocusA.Name = "stepFocusA";
+            this.stepFocusA.Size = new System.Drawing.Size(55, 20);
+            this.stepFocusA.TabIndex = 7;
+            this.stepFocusA.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // labelFocusAp
+            // 
+            this.labelFocusAp.AutoSize = true;
+            this.labelFocusAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelFocusAp.Location = new System.Drawing.Point(4, 13);
+            this.labelFocusAp.Name = "labelFocusAp";
+            this.labelFocusAp.Size = new System.Drawing.Size(57, 40);
+            this.labelFocusAp.TabIndex = 2;
+            this.labelFocusAp.Text = "Focus/\r\nAp";
+            // 
+            // btnToggleFocusAp
+            // 
+            this.btnToggleFocusAp.Location = new System.Drawing.Point(72, 3);
+            this.btnToggleFocusAp.Name = "btnToggleFocusAp";
+            this.btnToggleFocusAp.Size = new System.Drawing.Size(71, 53);
+            this.btnToggleFocusAp.TabIndex = 1;
+            this.btnToggleFocusAp.Text = "Toggle Focus/Ap A/B ( \\ )";
+            this.btnToggleFocusAp.UseVisualStyleBackColor = true;
+            this.btnToggleFocusAp.Click += new System.EventHandler(this.btnToggleFocusAp_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 815);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
@@ -1711,6 +1835,12 @@
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepQDollySpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldQDollySpeed)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepApertureB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepApertureA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepFocusB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepFocusA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1846,6 +1976,17 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnQDollySpeedSlower;
         private System.Windows.Forms.TrackBar sldQDollySpeed;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label labelFocusB;
+        private System.Windows.Forms.NumericUpDown stepFocusB;
+        private System.Windows.Forms.Label labelFocusA;
+        private System.Windows.Forms.NumericUpDown stepFocusA;
+        private System.Windows.Forms.Label labelFocusAp;
+        private System.Windows.Forms.Button btnToggleFocusAp;
+        private System.Windows.Forms.Label labelApertureB;
+        private System.Windows.Forms.NumericUpDown stepApertureB;
+        private System.Windows.Forms.Label labelApertureA;
+        private System.Windows.Forms.NumericUpDown stepApertureA;
     }
 }
 
