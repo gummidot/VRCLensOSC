@@ -318,7 +318,7 @@
             this.stepZoom.Size = new System.Drawing.Size(35, 20);
             this.stepZoom.TabIndex = 7;
             this.stepZoom.Value = new decimal(new int[] {
-            10,
+            30,
             0,
             0,
             0});
@@ -799,7 +799,7 @@
             this.stepMoveVUpDown.Size = new System.Drawing.Size(60, 20);
             this.stepMoveVUpDown.TabIndex = 0;
             this.stepMoveVUpDown.Value = new decimal(new int[] {
-            50,
+            30,
             0,
             0,
             131072});
@@ -1683,6 +1683,11 @@
             this.stepApertureB.Name = "stepApertureB";
             this.stepApertureB.Size = new System.Drawing.Size(55, 20);
             this.stepApertureB.TabIndex = 14;
+            this.stepApertureB.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // labelApertureA
             // 
@@ -1699,6 +1704,11 @@
             this.stepApertureA.Name = "stepApertureA";
             this.stepApertureA.Size = new System.Drawing.Size(55, 20);
             this.stepApertureA.TabIndex = 12;
+            this.stepApertureA.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // labelFocusB
             // 
