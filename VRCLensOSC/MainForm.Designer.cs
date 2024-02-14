@@ -159,6 +159,7 @@
             this.btnQDollySpeedSlower = new System.Windows.Forms.Button();
             this.sldQDollySpeed = new System.Windows.Forms.TrackBar();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.checkBoxLimitFocusAp = new System.Windows.Forms.CheckBox();
             this.labelApertureB = new System.Windows.Forms.Label();
             this.stepApertureB = new System.Windows.Forms.NumericUpDown();
             this.labelApertureA = new System.Windows.Forms.Label();
@@ -1653,6 +1654,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.checkBoxLimitFocusAp);
             this.panel13.Controls.Add(this.labelApertureB);
             this.panel13.Controls.Add(this.stepApertureB);
             this.panel13.Controls.Add(this.labelApertureA);
@@ -1667,6 +1669,17 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(632, 60);
             this.panel13.TabIndex = 13;
+            // 
+            // checkBoxLimitFocusAp
+            // 
+            this.checkBoxLimitFocusAp.AutoSize = true;
+            this.checkBoxLimitFocusAp.Location = new System.Drawing.Point(439, 34);
+            this.checkBoxLimitFocusAp.Name = "checkBoxLimitFocusAp";
+            this.checkBoxLimitFocusAp.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxLimitFocusAp.TabIndex = 16;
+            this.checkBoxLimitFocusAp.Text = "Limit Focus/Ap to A-B";
+            this.checkBoxLimitFocusAp.UseVisualStyleBackColor = true;
+            this.checkBoxLimitFocusAp.CheckedChanged += new System.EventHandler(this.checkBoxLimitFocusAp_CheckedChanged);
             // 
             // labelApertureB
             // 
@@ -1997,6 +2010,7 @@
         private System.Windows.Forms.NumericUpDown stepApertureB;
         private System.Windows.Forms.Label labelApertureA;
         private System.Windows.Forms.NumericUpDown stepApertureA;
+        private System.Windows.Forms.CheckBox checkBoxLimitFocusAp;
     }
 }
 

@@ -948,7 +948,8 @@ namespace VRCLensOSC
 
         private void TimerApShallow_Tick(object sender, EventArgs e)
         {
-            if (this.sldAp.Value - (int)this.stepAp.Value < 0) this.sldAp.Value = 0;
+            int min = this.sldAp.Minimum;
+            if (this.sldAp.Value - (int)this.stepAp.Value < min) this.sldAp.Value = min;
             else this.sldAp.Value -= (int)this.stepAp.Value;
             OSCAp();
         }
@@ -965,7 +966,8 @@ namespace VRCLensOSC
 
         private void TimerApGrea_Tick(object sender, EventArgs e)
         {
-            if (this.sldAp.Value + (int)this.stepAp.Value > Multi) this.sldAp.Value = Multi;
+            int max = this.sldAp.Maximum;
+            if (this.sldAp.Value + (int)this.stepAp.Value > max) this.sldAp.Value = max;
             else this.sldAp.Value += (int)this.stepAp.Value;
             OSCAp();
         }
@@ -993,7 +995,8 @@ namespace VRCLensOSC
 
         private void TimerFocusClo_Tick(object sender, EventArgs e)
         {
-            if (this.sldFocus.Value - (int)this.stepFocus.Value < 0) this.sldFocus.Value = 0;
+            int min = this.sldFocus.Minimum;
+            if (this.sldFocus.Value - (int)this.stepFocus.Value < min) this.sldFocus.Value = min;
             else this.sldFocus.Value -= (int)this.stepFocus.Value;
             OSCFocus();
         }
@@ -1010,7 +1013,8 @@ namespace VRCLensOSC
 
         private void TimerFocusFur_Tick(object sender, EventArgs e)
         {
-            if (this.sldFocus.Value + (int)this.stepFocus.Value > Multi) this.sldFocus.Value = Multi;
+            int max = this.sldFocus.Maximum;
+            if (this.sldFocus.Value + (int)this.stepFocus.Value > max) this.sldFocus.Value = max;
             else this.sldFocus.Value += (int)this.stepFocus.Value;
             OSCFocus();
         }
@@ -1456,6 +1460,24 @@ namespace VRCLensOSC
         private void btnToggleFocusAp_Click(object sender, EventArgs e)
         {
             ToggleFocusAp();
+        }
+
+        private void checkBoxLimitFocusAp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxLimitFocusAp.Checked)
+            {
+                this.sldFocus.Minimum = (int)Math.Min(this.stepFocusA.Value, this.stepFocusB.Value) * 100;
+                this.sldFocus.Maximum = (int)Math.Max(this.stepFocusA.Value, this.stepFocusB.Value) * 100;
+                this.sldAp.Minimum = (int)Math.Min(this.stepApertureA.Value, this.stepApertureB.Value) * 100;
+                this.sldAp.Maximum = (int)Math.Max(this.stepApertureA.Value, this.stepApertureB.Value) * 100;
+            }
+            else
+            {
+                this.sldFocus.Minimum = 0;
+                this.sldFocus.Maximum = 10000;
+                this.sldAp.Minimum = 0;
+                this.sldAp.Maximum = 10000;
+            }
         }
     }
 }
