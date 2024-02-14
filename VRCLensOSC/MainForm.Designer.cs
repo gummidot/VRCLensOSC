@@ -560,7 +560,7 @@
             this.stepFocus.Size = new System.Drawing.Size(35, 20);
             this.stepFocus.TabIndex = 7;
             this.stepFocus.Value = new decimal(new int[] {
-            10,
+            30,
             0,
             0,
             0});
@@ -1684,7 +1684,7 @@
             this.stepApertureB.Size = new System.Drawing.Size(55, 20);
             this.stepApertureB.TabIndex = 14;
             this.stepApertureB.Value = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -1705,7 +1705,7 @@
             this.stepApertureA.Size = new System.Drawing.Size(55, 20);
             this.stepApertureA.TabIndex = 12;
             this.stepApertureA.Value = new decimal(new int[] {
-            15,
+            20,
             0,
             0,
             0});
