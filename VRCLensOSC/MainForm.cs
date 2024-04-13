@@ -350,6 +350,10 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
                 case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
                 case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
+                // Experimental focus control using volume wheel (must disable volume controls).
+                // KeyUp fires immediately after KeyDown, so there's only a KeyDown action here.
+                case Keys.VolumeDown: this.FocusDecrease(); break;
+                case Keys.VolumeUp: this.FocusIncrease(); break;
                 case Keys.OemPipe:
                     ToggleFocusAp();
                     break;
@@ -995,10 +999,7 @@ namespace VRCLensOSC
 
         private void TimerFocusClo_Tick(object sender, EventArgs e)
         {
-            int min = this.sldFocus.Minimum;
-            if (this.sldFocus.Value - (int)this.stepFocus.Value < min) this.sldFocus.Value = min;
-            else this.sldFocus.Value -= (int)this.stepFocus.Value;
-            OSCFocus();
+            this.FocusDecrease();
         }
 
         private void btnFocusClo_MouseDown(object sender, MouseEventArgs e)
@@ -1013,9 +1014,22 @@ namespace VRCLensOSC
 
         private void TimerFocusFur_Tick(object sender, EventArgs e)
         {
+            this.FocusIncrease();
+        }
+
+        private void FocusIncrease()
+        {
             int max = this.sldFocus.Maximum;
             if (this.sldFocus.Value + (int)this.stepFocus.Value > max) this.sldFocus.Value = max;
             else this.sldFocus.Value += (int)this.stepFocus.Value;
+            OSCFocus();
+        }
+
+        private void FocusDecrease()
+        {
+            int min = this.sldFocus.Minimum;
+            if (this.sldFocus.Value - (int)this.stepFocus.Value < min) this.sldFocus.Value = min;
+            else this.sldFocus.Value -= (int)this.stepFocus.Value;
             OSCFocus();
         }
 

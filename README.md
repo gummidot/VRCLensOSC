@@ -83,6 +83,7 @@ This repo contains my own modifications to VRCLensOSC and VRCLens:
 - Added hotkeys to increase or decrease Drone Speed (`7` and `8`) or toggle between two speeds (`6`)
 - Added hotkey to toggle between two focus/aperture settings (`\`)
 - Added custom limits for focus/aperture setting values
+- Added secondary hotkeys for focus control (Volume Up/Down)
 
 ### Optional 3-dimensional movement setup
 
