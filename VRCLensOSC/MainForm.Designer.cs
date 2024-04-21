@@ -561,7 +561,7 @@
             this.stepFocus.Size = new System.Drawing.Size(35, 20);
             this.stepFocus.TabIndex = 7;
             this.stepFocus.Value = new decimal(new int[] {
-            30,
+            50,
             0,
             0,
             0});
@@ -1555,7 +1555,7 @@
             this.btnToggleDroneSpeed.Name = "btnToggleDroneSpeed";
             this.btnToggleDroneSpeed.Size = new System.Drawing.Size(71, 53);
             this.btnToggleDroneSpeed.TabIndex = 1;
-            this.btnToggleDroneSpeed.Text = "Toggle Speed A/B ( 6 )";
+            this.btnToggleDroneSpeed.Text = "Toggle Speed A/B ( 6 / Scrlk )";
             this.btnToggleDroneSpeed.UseVisualStyleBackColor = true;
             this.btnToggleDroneSpeed.Click += new System.EventHandler(this.btnDroneSpeedToggle_Click);
             // 
@@ -1718,7 +1718,7 @@
             this.stepApertureA.Size = new System.Drawing.Size(55, 20);
             this.stepApertureA.TabIndex = 12;
             this.stepApertureA.Value = new decimal(new int[] {
-            20,
+            40,
             0,
             0,
             0});
@@ -1738,6 +1738,11 @@
             this.stepFocusB.Name = "stepFocusB";
             this.stepFocusB.Size = new System.Drawing.Size(55, 20);
             this.stepFocusB.TabIndex = 10;
+            this.stepFocusB.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelFocusA
             // 
@@ -1755,7 +1760,7 @@
             this.stepFocusA.Size = new System.Drawing.Size(55, 20);
             this.stepFocusA.TabIndex = 7;
             this.stepFocusA.Value = new decimal(new int[] {
-            25,
+            60,
             0,
             0,
             0});

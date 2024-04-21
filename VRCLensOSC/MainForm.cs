@@ -366,6 +366,7 @@ namespace VRCLensOSC
                     btnSpeedFaster.Enabled = false;
                     break;
                 case Keys.D6:
+                case Keys.Scroll:
                     ToggleDroneSpeed();
                     break;
                 case Keys.D3:
