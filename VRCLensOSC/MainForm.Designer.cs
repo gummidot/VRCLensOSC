@@ -170,6 +170,14 @@
             this.stepFocusA = new System.Windows.Forms.NumericUpDown();
             this.labelFocusAp = new System.Windows.Forms.Label();
             this.btnToggleFocusAp = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.checkBoxLimitZoom = new System.Windows.Forms.CheckBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.stepZoomB = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.stepZoomA = new System.Windows.Forms.NumericUpDown();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnToggleZoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -215,6 +223,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepApertureA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepFocusB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepFocusA)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepZoomB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepZoomA)).BeginInit();
             this.SuspendLayout();
             // 
             // sldZoom
@@ -333,7 +344,7 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnEVm);
             this.panel2.Controls.Add(this.sldEV);
-            this.panel2.Location = new System.Drawing.Point(10, 121);
+            this.panel2.Location = new System.Drawing.Point(10, 191);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(632, 60);
             this.panel2.TabIndex = 10;
@@ -426,7 +437,7 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.btnApShallow);
             this.panel3.Controls.Add(this.sldAp);
-            this.panel3.Location = new System.Drawing.Point(10, 184);
+            this.panel3.Location = new System.Drawing.Point(10, 254);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(632, 60);
             this.panel3.TabIndex = 10;
@@ -526,7 +537,7 @@
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.btnFocusClo);
             this.panel4.Controls.Add(this.sldFocus);
-            this.panel4.Location = new System.Drawing.Point(10, 247);
+            this.panel4.Location = new System.Drawing.Point(10, 317);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(632, 60);
             this.panel4.TabIndex = 10;
@@ -874,7 +885,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnResetZoom, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnFocusPeaking, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnDoFOff, 2, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 598);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(423, 668);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -1056,7 +1067,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 598);
+            this.groupBox1.Location = new System.Drawing.Point(10, 668);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(204, 215);
             this.groupBox1.TabIndex = 15;
@@ -1066,7 +1077,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(216, 598);
+            this.groupBox2.Location = new System.Drawing.Point(216, 668);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(204, 215);
             this.groupBox2.TabIndex = 16;
@@ -1386,7 +1397,7 @@
             // lbVer
             // 
             this.lbVer.AutoSize = true;
-            this.lbVer.Location = new System.Drawing.Point(593, 800);
+            this.lbVer.Location = new System.Drawing.Point(593, 870);
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(59, 13);
             this.lbVer.TabIndex = 5;
@@ -1401,7 +1412,7 @@
             this.panel10.Controls.Add(this.label18);
             this.panel10.Controls.Add(this.btnSpeedSlower);
             this.panel10.Controls.Add(this.sldSpeed);
-            this.panel10.Location = new System.Drawing.Point(10, 375);
+            this.panel10.Location = new System.Drawing.Point(10, 445);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(632, 60);
             this.panel10.TabIndex = 11;
@@ -1492,7 +1503,7 @@
             this.panel11.Controls.Add(this.stepSpeedA);
             this.panel11.Controls.Add(this.label20);
             this.panel11.Controls.Add(this.btnToggleDroneSpeed);
-            this.panel11.Location = new System.Drawing.Point(10, 441);
+            this.panel11.Location = new System.Drawing.Point(10, 511);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(632, 60);
             this.panel11.TabIndex = 12;
@@ -1568,7 +1579,7 @@
             this.panel12.Controls.Add(this.label23);
             this.panel12.Controls.Add(this.btnQDollySpeedSlower);
             this.panel12.Controls.Add(this.sldQDollySpeed);
-            this.panel12.Location = new System.Drawing.Point(10, 507);
+            this.panel12.Location = new System.Drawing.Point(10, 577);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(632, 60);
             this.panel12.TabIndex = 12;
@@ -1665,7 +1676,7 @@
             this.panel13.Controls.Add(this.stepFocusA);
             this.panel13.Controls.Add(this.labelFocusAp);
             this.panel13.Controls.Add(this.btnToggleFocusAp);
-            this.panel13.Location = new System.Drawing.Point(10, 313);
+            this.panel13.Location = new System.Drawing.Point(10, 383);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(632, 60);
             this.panel13.TabIndex = 13;
@@ -1785,11 +1796,99 @@
             this.btnToggleFocusAp.UseVisualStyleBackColor = true;
             this.btnToggleFocusAp.Click += new System.EventHandler(this.btnToggleFocusAp_Click);
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.checkBoxLimitZoom);
+            this.panel14.Controls.Add(this.label25);
+            this.panel14.Controls.Add(this.stepZoomB);
+            this.panel14.Controls.Add(this.label26);
+            this.panel14.Controls.Add(this.stepZoomA);
+            this.panel14.Controls.Add(this.label27);
+            this.panel14.Controls.Add(this.btnToggleZoom);
+            this.panel14.Location = new System.Drawing.Point(10, 125);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(632, 60);
+            this.panel14.TabIndex = 17;
+            // 
+            // checkBoxLimitZoom
+            // 
+            this.checkBoxLimitZoom.AutoSize = true;
+            this.checkBoxLimitZoom.Location = new System.Drawing.Point(291, 34);
+            this.checkBoxLimitZoom.Name = "checkBoxLimitZoom";
+            this.checkBoxLimitZoom.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxLimitZoom.TabIndex = 16;
+            this.checkBoxLimitZoom.Text = "Limit Zoom to A-B";
+            this.checkBoxLimitZoom.UseVisualStyleBackColor = true;
+            this.checkBoxLimitZoom.CheckedChanged += new System.EventHandler(this.checkBoxLimitZoom_CheckedChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(219, 18);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(44, 13);
+            this.label25.TabIndex = 11;
+            this.label25.Text = "Zoom B";
+            // 
+            // stepZoomB
+            // 
+            this.stepZoomB.Location = new System.Drawing.Point(220, 34);
+            this.stepZoomB.Name = "stepZoomB";
+            this.stepZoomB.Size = new System.Drawing.Size(55, 20);
+            this.stepZoomB.TabIndex = 10;
+            this.stepZoomB.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(148, 18);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(44, 13);
+            this.label26.TabIndex = 9;
+            this.label26.Text = "Zoom A";
+            // 
+            // stepZoomA
+            // 
+            this.stepZoomA.Location = new System.Drawing.Point(149, 34);
+            this.stepZoomA.Name = "stepZoomA";
+            this.stepZoomA.Size = new System.Drawing.Size(55, 20);
+            this.stepZoomA.TabIndex = 7;
+            this.stepZoomA.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label27.Location = new System.Drawing.Point(4, 19);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(50, 20);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Zoom";
+            // 
+            // btnToggleZoom
+            // 
+            this.btnToggleZoom.Location = new System.Drawing.Point(72, 3);
+            this.btnToggleZoom.Name = "btnToggleZoom";
+            this.btnToggleZoom.Size = new System.Drawing.Size(71, 53);
+            this.btnToggleZoom.TabIndex = 1;
+            this.btnToggleZoom.Text = "Toggle Zoom A/B\r\n( Shift - )";
+            this.btnToggleZoom.UseVisualStyleBackColor = true;
+            this.btnToggleZoom.Click += new System.EventHandler(this.btnToggleZoom_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 815);
+            this.ClientSize = new System.Drawing.Size(656, 905);
+            this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel11);
@@ -1869,6 +1968,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepApertureA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepFocusB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepFocusA)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepZoomB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepZoomA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2016,6 +2119,14 @@
         private System.Windows.Forms.Label labelApertureA;
         private System.Windows.Forms.NumericUpDown stepApertureA;
         private System.Windows.Forms.CheckBox checkBoxLimitFocusAp;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.CheckBox checkBoxLimitZoom;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown stepZoomB;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.NumericUpDown stepZoomA;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button btnToggleZoom;
     }
 }
 

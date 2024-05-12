@@ -28,6 +28,7 @@ namespace VRCLensOSC
         private int DefaultSldZoom;
         private bool DroneSpeedToggle = false;
         private bool FocusApToggle = false;
+        private bool ZoomToggle = false;
 
         private XBoxController controller;
         private int controllerIndex = 1;
@@ -335,7 +336,17 @@ namespace VRCLensOSC
             // Key codes: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys
             switch (e.KeyCode)
             {
-                case Keys.OemMinus: TimerZoomOut.Enabled = true; btnZoomOut.Enabled = false; break;
+                case Keys.OemMinus:
+                    if (e.Shift)
+                    {
+                        ToggleZoom();
+                    }
+                    else
+                    {
+                        TimerZoomOut.Enabled = true;
+                        btnZoomOut.Enabled = false;
+                    }
+                    break;
                 case Keys.Oemplus:
                     if (e.Shift) {
                         OSCZoomReset();
@@ -786,6 +797,13 @@ namespace VRCLensOSC
             osc.Send(new OscMessage("/avatar/parameters/VRCLZoomRadial", this.DefaultSldZoom * Div));
         }
 
+        private void ToggleZoom()
+        {
+            this.ZoomToggle = !this.ZoomToggle;
+            this.sldZoom.Value = (this.ZoomToggle ? (int)this.stepZoomA.Value : (int)this.stepZoomB.Value) * 100;
+            this.OSCZoom();
+        }
+
         private void OSCEV()
         {
             this.lbEV.Text = ((int)Math.Round(this.sldEV.Value * DivPer)).ToString() + "%";
@@ -860,9 +878,7 @@ namespace VRCLensOSC
 
         private void TimerZoomOut_Tick(object sender, EventArgs e)
         {
-            if (this.sldZoom.Value - (int)this.stepZoom.Value < 0) this.sldZoom.Value = 0;
-            else this.sldZoom.Value -= (int)this.stepZoom.Value;
-            OSCZoom();
+            ZoomDecrease();
         }
 
         private void btnZoomOut_MouseDown(object sender, MouseEventArgs e)
@@ -880,8 +896,21 @@ namespace VRCLensOSC
         }
         private void TimerZoomIn_Tick(object sender, EventArgs e)
         {
-            if (this.sldZoom.Value + (int)this.stepZoom.Value > Multi) this.sldZoom.Value = Multi;
+            ZoomIncrease();
+        }
+        private void ZoomIncrease()
+        {
+            int max = this.sldZoom.Maximum;
+            if (this.sldZoom.Value + (int)this.stepZoom.Value > max) this.sldZoom.Value = max;
             else this.sldZoom.Value += (int)this.stepZoom.Value;
+            OSCZoom();
+        }
+
+        private void ZoomDecrease()
+        {
+            int min = this.sldZoom.Minimum;
+            if (this.sldZoom.Value - (int)this.stepZoom.Value < min) this.sldZoom.Value = min;
+            else this.sldZoom.Value -= (int)this.stepZoom.Value;
             OSCZoom();
         }
 
@@ -1492,6 +1521,25 @@ namespace VRCLensOSC
                 this.sldFocus.Maximum = 10000;
                 this.sldAp.Minimum = 0;
                 this.sldAp.Maximum = 10000;
+            }
+        }
+
+        private void btnToggleZoom_Click(object sender, EventArgs e)
+        {
+            ToggleZoom();
+        }
+
+        private void checkBoxLimitZoom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxLimitZoom.Checked)
+            {
+                this.sldZoom.Minimum = (int)Math.Min(this.stepZoomA.Value, this.stepZoomB.Value) * 100;
+                this.sldZoom.Maximum = (int)Math.Max(this.stepZoomA.Value, this.stepZoomB.Value) * 100;
+            }
+            else
+            {
+                this.sldZoom.Minimum = 0;
+                this.sldZoom.Maximum = 10000;
             }
         }
     }
