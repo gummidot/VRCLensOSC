@@ -178,6 +178,8 @@
             this.stepZoomA = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.btnToggleZoom = new System.Windows.Forms.Button();
+            this.comboBoxVolume = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sldZoom)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepZoom)).BeginInit();
@@ -1798,6 +1800,8 @@
             // 
             // panel14
             // 
+            this.panel14.Controls.Add(this.label22);
+            this.panel14.Controls.Add(this.comboBoxVolume);
             this.panel14.Controls.Add(this.checkBoxLimitZoom);
             this.panel14.Controls.Add(this.label25);
             this.panel14.Controls.Add(this.stepZoomB);
@@ -1882,6 +1886,30 @@
             this.btnToggleZoom.Text = "Toggle Zoom A/B\r\n( Shift - )";
             this.btnToggleZoom.UseVisualStyleBackColor = true;
             this.btnToggleZoom.Click += new System.EventHandler(this.btnToggleZoom_Click);
+            // 
+            // comboBoxVolume
+            // 
+            this.comboBoxVolume.FormattingEnabled = true;
+            this.comboBoxVolume.Items.AddRange(new object[] {
+            "Focus",
+            "Zoom",
+            "Speed",
+            "None"});
+            this.comboBoxVolume.Location = new System.Drawing.Point(524, 32);
+            this.comboBoxVolume.Name = "comboBoxVolume";
+            this.comboBoxVolume.Size = new System.Drawing.Size(79, 21);
+            this.comboBoxVolume.TabIndex = 7;
+            this.comboBoxVolume.Text = "Focus";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(521, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 13);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "Volume Control";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // MainForm
             // 
@@ -2127,6 +2155,8 @@
         private System.Windows.Forms.NumericUpDown stepZoomA;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnToggleZoom;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox comboBoxVolume;
     }
 }
 

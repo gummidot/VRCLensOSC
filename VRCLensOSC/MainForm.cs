@@ -361,10 +361,24 @@ namespace VRCLensOSC
                 case Keys.Oem7: TimerApGrea.Enabled = true; btnApGreat.Enabled = false; break;
                 case Keys.D9: TimerFocusClo.Enabled = true; btnFocusClo.Enabled = false; break;
                 case Keys.D0: TimerFocusFur.Enabled = true; btnFocusFur.Enabled = false; break;
-                // Experimental focus control using volume wheel (must disable volume controls).
+                // Experimental volume wheel controls (must disable default volume controls).
                 // KeyUp fires immediately after KeyDown, so there's only a KeyDown action here.
-                case Keys.VolumeDown: this.FocusDecrease(); break;
-                case Keys.VolumeUp: this.FocusIncrease(); break;
+                case Keys.VolumeDown:
+                    switch (this.comboBoxVolume.Text)
+                    {
+                        case "Focus": FocusDecrease(); break;
+                        case "Zoom": ZoomDecrease(); break;
+                        case "Speed": SpeedDecrease(); break;
+                    }
+                    break;
+                case Keys.VolumeUp:
+                    switch (this.comboBoxVolume.Text)
+                    {
+                        case "Focus": FocusIncrease(); break;
+                        case "Zoom": ZoomIncrease(); break;
+                        case "Speed": SpeedIncrease(); break;
+                    }
+                    break;
                 case Keys.OemPipe:
                     ToggleFocusAp();
                     break;
@@ -1086,9 +1100,7 @@ namespace VRCLensOSC
 
         private void TimerSpeedSlower_Tick(object sender, EventArgs e)
         {
-            if (this.sldSpeed.Value - (int)this.stepSpeed.Value < 0) this.sldSpeed.Value = 0;
-            else this.sldSpeed.Value -= (int)this.stepSpeed.Value;
-            OSCSpeed();
+            SpeedDecrease();
         }
 
         private void btnSpeedSlower_MouseDown(object sender, MouseEventArgs e)
@@ -1103,9 +1115,7 @@ namespace VRCLensOSC
 
         private void TimerSpeedFaster_Tick(object sender, EventArgs e)
         {
-            if (this.sldSpeed.Value + (int)this.stepSpeed.Value > Multi) this.sldSpeed.Value = Multi;
-            else this.sldSpeed.Value += (int)this.stepSpeed.Value;
-            OSCSpeed();
+            SpeedIncrease();
         }
 
         private void btnSpeedFaster_MouseDown(object sender, MouseEventArgs e)
@@ -1116,6 +1126,20 @@ namespace VRCLensOSC
         private void btnSpeedFaster_MouseUp(object sender, MouseEventArgs e)
         {
             this.TimerSpeedFaster.Enabled = false;
+        }
+
+        private void SpeedDecrease()
+        {
+            if (this.sldSpeed.Value - (int)this.stepSpeed.Value < 0) this.sldSpeed.Value = 0;
+            else this.sldSpeed.Value -= (int)this.stepSpeed.Value;
+            OSCSpeed();
+        }
+
+        private void SpeedIncrease()
+        {
+            if (this.sldSpeed.Value + (int)this.stepSpeed.Value > Multi) this.sldSpeed.Value = Multi;
+            else this.sldSpeed.Value += (int)this.stepSpeed.Value;
+            OSCSpeed();
         }
 
         #endregion

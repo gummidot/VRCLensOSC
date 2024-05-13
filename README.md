@@ -84,7 +84,7 @@ This repo contains my own modifications to VRCLensOSC and VRCLens:
 - Added hotkey to toggle between two focus/aperture settings (`\`)
 - Added hotkey to toggle between two zoom settings (Shift + `-`)
 - Added custom limits for focus, aperture, zoom setting values
-- Added secondary hotkeys for focus control (Volume Up/Down)
+- Added optional hotkeys for focus, zoom, and speed control (Volume Up/Down)
 
 ### Optional 3-dimensional movement setup
 
